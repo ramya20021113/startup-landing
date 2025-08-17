@@ -1,0 +1,67 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Include Font Awesome if using icons -->
+  <script src="https://kit.fontawesome.com/your-kit-code.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <!-- Optional site-wide header/nav -->
+  </header>
+
+  <main>
+    <section id="blog">
+      <div class="container">
+        <div class="section-header11">
+          <h2>Blog</h2>
+        </div>
+
+        <div class="blog-filters">
+          <button class="filter-btn active">All Post</button>
+          <button class="filter-btn">Development</button>
+          <button class="filter-btn">Investment</button>
+          <button class="filter-btn">Marketing</button>
+          <button class="filter-btn">Strategies</button>
+        </div>
+
+        <div class="blog-grid">
+          <!-- Visible post examples -->
+          <article class="blog-card">
+            <div class="blog-image">
+              <img src="images/Post-4.jpg" alt="Startup Lessons" />
+            </div>
+            <div class="blog-content">
+              <h3>Startup Lessons: Stories of Success and Failure</h3>
+              <div class="blog-meta">
+                <span>July 10, 2023</span><span>3 Comments</span>
+              </div>
+              <p>Your excerpt goes here...</p>
+              <a href="#" class="read-more">Read More</a>
+            </div>
+          </article>
+
+          <!-- Additional posts... -->
+
+          <!-- Hidden beyond initial view (if using Load More) -->
+          <article class="blog-card hidden">
+            <!-- hidden content similar structure -->
+          </article>
+        </div>
+
+        <!-- Optional Load More Button -->
+        <button class="load-more-btn">Load More</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <!-- Optional footer -->
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

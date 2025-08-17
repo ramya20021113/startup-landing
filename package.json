@@ -1,0 +1,28 @@
+{
+  "name": "startup-landing",
+  "version": "1.0.0",
+  "description": "Startup Landing Page with API endpoints",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Build completed'",
+    "start": "vercel dev"
+  },
+  "keywords": [
+    "startup",
+    "landing",
+    "vercel",
+    "api"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+
+

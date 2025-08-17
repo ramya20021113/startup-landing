@@ -2,7 +2,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   // CTA button click handler
 
-
   const navLinks = document.querySelectorAll(".nav-links a");
 
   navLinks.forEach((link) => {
@@ -161,7 +160,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //animation
-  
 
   function revealOnScroll() {
     const elements = document.querySelectorAll(
@@ -253,89 +251,82 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  let isSelectOpen = false;
 
+  // Panel open/close
+  const openBtn = document.getElementById("openPanel");
+  const closeBtn = document.getElementById("closePanel");
+  const panel = document.getElementById("sidePanel");
 
+  openBtn.onclick = () => panel.classList.add("open");
+  closeBtn.onclick = () => panel.classList.remove("open");
 
+  // Dropdown toggle
+  const customSelect = document.getElementById("subjectSelect");
+  const selectItems = customSelect.querySelector(".select-items");
+  const selectSelected = customSelect.querySelector(".select-selected");
 
-  
-
-let isSelectOpen = false;
-
-// Panel open/close
-const openBtn = document.getElementById("openPanel");
-const closeBtn = document.getElementById("closePanel");
-const panel = document.getElementById("sidePanel");
-
-openBtn.onclick = () => panel.classList.add("open");
-closeBtn.onclick = () => panel.classList.remove("open");
-
-// Dropdown toggle
-const customSelect = document.getElementById("subjectSelect");
-const selectItems = customSelect.querySelector(".select-items");
-const selectSelected = customSelect.querySelector(".select-selected");
-
-customSelect.addEventListener("click", function (event) {
-  event.stopPropagation();
-  isSelectOpen = !isSelectOpen;
-
-  if (isSelectOpen) {
-    selectItems.classList.remove("select-hide");
-    selectSelected.classList.add("select-arrow-active");
-  } else {
-    selectItems.classList.add("select-hide");
-    selectSelected.classList.remove("select-arrow-active");
-  }
-});
-
-// Option selection
-const options = customSelect.querySelectorAll(".select-option");
-options.forEach((option) => {
-  option.addEventListener("click", function (event) {
+  customSelect.addEventListener("click", function (event) {
     event.stopPropagation();
-    selectSelected.textContent = this.textContent;
-    selectSelected.style.color = "#333";
-    selectItems.classList.add("select-hide");
-    selectSelected.classList.remove("select-arrow-active");
-    isSelectOpen = false;
+    isSelectOpen = !isSelectOpen;
+
+    if (isSelectOpen) {
+      selectItems.classList.remove("select-hide");
+      selectSelected.classList.add("select-arrow-active");
+    } else {
+      selectItems.classList.add("select-hide");
+      selectSelected.classList.remove("select-arrow-active");
+    }
   });
-});
 
-// Form submission
-function handleSubmit() {
-  const selectedText = selectSelected.textContent;
-  const emailText = document.getElementById("email").value;
-  const messageText = document.getElementById("message").value;
+  // Option selection
+  const options = customSelect.querySelectorAll(".select-option");
+  options.forEach((option) => {
+    option.addEventListener("click", function (event) {
+      event.stopPropagation();
+      selectSelected.textContent = this.textContent;
+      selectSelected.style.color = "#333";
+      selectItems.classList.add("select-hide");
+      selectSelected.classList.remove("select-arrow-active");
+      isSelectOpen = false;
+    });
+  });
 
-  if (selectedText === "Select a subject") {
-    alert("Please select a subject before sending.");
-    return;
+  // Form submission
+  function handleSubmit() {
+    const selectedText = selectSelected.textContent;
+    const emailText = document.getElementById("email").value;
+    const messageText = document.getElementById("message").value;
+
+    if (selectedText === "Select a subject") {
+      alert("Please select a subject before sending.");
+      return;
+    }
+
+    if (!emailText.trim()) {
+      alert("Please enter your email address.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailText)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    if (!messageText.trim()) {
+      alert("Please enter a message before sending.");
+      return;
+    }
+
+    alert(
+      `Thank you! Your message about "${selectedText}" has been sent from ${emailText}. We'll get back to you soon!`
+    );
+
+    // Reset form
+    selectSelected.textContent = "Select a subject";
+    selectSelected.style.color = "#666";
+    document.getElementById("email").value = "";
+    document.getElementById("message").value = "";
   }
-
-  if (!emailText.trim()) {
-    alert("Please enter your email address.");
-    return;
-  }
-
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(emailText)) {
-    alert("Please enter a valid email address.");
-    return;
-  }
-
-  if (!messageText.trim()) {
-    alert("Please enter a message before sending.");
-    return;
-  }
-
-  alert(
-    `Thank you! Your message about "${selectedText}" has been sent from ${emailText}. We'll get back to you soon!`
-  );
-
-  // Reset form
-  selectSelected.textContent = "Select a subject";
-  selectSelected.style.color = "#666";
-  document.getElementById("email").value = "";
-  document.getElementById("message").value = "";
-}
-
 });

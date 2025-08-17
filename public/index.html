@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Startup Innovative Solutions</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header Navigation -->
+    <header>
+      <nav>
+        <div class="nav-container">
+          <div class="logo"><img src="images/Logo-Retina-1.webp" alt="MBL Logo" width="100" height="60" />
+          </div>
+          <ul class="nav-links">
+            <li><a href="#home" class="nav-link ">Home</a></li>
+            <li><a href="#features" class="nav-link ">Features</a></li>
+            <li><a href="#metrics" class="nav-link ">Metrics</a></li>
+            <li><a href="#testimonials" class="nav-link ">Testimonial</a></li>
+            <li><a href="blog.html" class="nav-link">Blog</a></li>
+          </ul>
+         <a href="javascript:void(0)" id="openPanel" class="cta-button">Get a Quote</a>
+
+        </div>
+         </nav>
+      </header> 
+
+<!-- Slide-in Panel -->
+<div id="sidePanel" class="panel">
+      <span id="closePanel" class="close">&times;</span>
+        <div class="header12">
+            <h2>Book a Call</h2>
+        </div>
+        <form>      
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="subject">Choose Your Subject</label>
+                    <div class="custom-select" id="subjectSelect">
+                        <div class="select-selected">Select a subject</div>
+                        <div class="select-items select-hide">
+                            <div class="select-option" onclick="selectOption(event, 'Idea Validation')">Idea Validation</div>
+                            <div class="select-option" onclick="selectOption(event, 'Business Planning')">Business Planning</div>
+                            <div class="select-option" onclick="selectOption(event, 'Funding Opportunities')">Funding Opportunities</div>
+                            <div class="select-option" onclick="selectOption(event, 'Product Development')">Product Development</div>
+                            <div class="select-option" onclick="selectOption(event, 'Prototyping and MVP')">Prototyping and MVP</div>
+                            <div class="select-option" onclick="selectOption(event, 'Market Launch')">Market Launch</div>
+                            <div class="select-option" onclick="selectOption(event, 'Business Development')">Business Development</div>
+                            <div class="select-option" onclick="selectOption(event, 'Analytics and Metrics')">Analytics and Metrics</div>
+                            <div class="select-option" onclick="selectOption(event, 'Investor Relations')">Investor Relations</div>
+                        </div>
+                    </div>
+                </div>
+            
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="your.email@gmail.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Tell us about your needs and goals..."></textarea>
+                </div>
+                
+                <button type="button" class="btn" onclick="handleSubmit()">Send</button>
+            </div>
+        </form>
+    </div>
+
+
+     
+ <!--home section-->
+    <section id="home">
+      <div class="container">
+        <div class="hero">
+          <div class="hero-text">
+            <div class="black-box1 box-move"></div>
+            <div class="slide-in-left">
+            <h3 >STARTUP INNOVATIVE SOLUTIONS</h3>
+            <h2><span class="black-text">FUELING INNOVATION <br></span>
+            <span class="gray-text">BUILDING A THRIVING <br>STARTUP</span></h2>
+            <p data-animate="left">
+              Remain lively hardly needed at do by. Two you fat downs fanny
+              three. True mr gone most at. Dare as name just when with it body.
+              Travelling inquietude. Remain lively hardly needed at do by Two
+              you fat downs.
+            </p>
+            <button class="primary-button"  data-animate="left">Get Started</button>
+           </div>
+            <div class="black-box2 box-move"></div>
+         </div> 
+        </div>
+      </div>
+  </section>
+
+  <section id="features-section">
+  <div class="container">
+    <div class="features-row">
+      <div class="text-content">
+        <h2>Powerful Features for<br>Startup Success</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+      </div>
+      <div class="logos">
+        <div class="para">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify"/><p>
+        Spotify</p></div>
+        <div class="para">
+        <img src="images/amazon.jpeg" alt="Amazon"/><P>Amazon</p></div>
+        <div class="para">
+        <img src="images/shopee.jpeg" alt="Shopee"/><p>Shopee</p></div>
+        <div class="para">
+        <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google"/><p>Google</p></div>
+        <div class="para">
+        <img src="images/sticon.png" alt="Microsoft"/><p>Microsoft</p></div>
+        <div class="para">
+        <img src="images/apple2.jpg" alt="Apple"/><p>Apple</p></div>
+      </div>
+    </div>
+    <hr />
+  </div>
+</section>
+
+
+
+    <!-- Features Section -->
+    <section id="features">
+      <div class="container">
+        <div class="section-header1">
+          <h2>Powerful Features for <br> Startup Success</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Ut elit
+            tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+          </p>
+        <div class="features-grid slide-in-bottom">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-edit"></i>
+            </div>
+            <h3>Idea Exploration</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-pencil-ruler"></i>
+            </div>
+            <h3>Business Planning</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3>Product Development</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+            </p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="solution">
+      <div class="container">
+         <div class="section-header4"> 
+        <div class="solutions-section">
+          <div class="solutions">  
+            <div class="solutions-right2 slide-in-left">
+              <img 
+                src="images/pic-5.jpg"
+                alt="Innovative solutions illustration"
+              />
+            </div>
+            <div class="solutions-left slide-in-right">
+              <h2>Innovative Solutions: Revolutionizing the Industry</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+                tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+              </p>
+              <ul class="solutions-list">
+                <li class="solution-item">
+                  <i class="fas fa-angle-double-right"></i>
+                  <span>Scalability and Flexibility: Grow with Confidence</span>
+                </li>
+                <li class="solution-item">
+                  <i class="fas fa-angle-double-right"></i>
+                  <span
+                    >User-Friendly Interface: Intuitive and Easy to Use</span
+                  >
+                </li>
+                <li class="solution-item">
+                  <i class="fas fa-angle-double-right"></i>
+                  <span
+                    >Collaboration and Communication: Streamline Teamwork</span
+                  >
+                </li>
+                <li class="solution-item">
+                  <i class="fas fa-angle-double-right"></i>
+                  <span
+                    >Scalable Pricing Plans: Affordable and Flexible
+                    Options</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Metrics Section -->
+    <section id="metrics">
+      <div class="container">
+        <div class="metrics">
+          <div class="metrics-right slide-in-left">
+            <div class="section-header2 section-header-left ">
+              <h2>Measuring Growth: Metrics to Track for Startups</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+                tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+              </p>
+            </div>
+
+            <ul class="metric-list">
+              <li class="metric-list-item">
+                <p>Customer Acquisition Cost (CAC):Measures the cost of acquiring each new customer.</p>
+              </li>
+              <li class="metric-list-item">
+                <p>Customer Lifetime Value (CLTV):Calculates the projected revenue a customer will generate
+                  throughout their relationship with the business.
+                </p>
+              </li>
+              <li class="metric-list-item">
+                <p>Monthly Recurring Revenue (MRR):Tracks the predictable and recurring revenue generated by the
+                  business each month.
+                </p>
+              </li>
+              <li class="metric-list-item">
+              <p>Return on Investment (ROI):Evaluates the profitability 
+                of an investment relative to its cost.</p>
+              </li>
+            </ul>
+          </div>
+          <div class="metrics-left slide-in-right">
+            <img
+              src="images/pic-7.jpg"
+              alt="Startup growth analytics"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- User Engagement Section -->
+    <section id="user-engagement">
+      <div class="container">
+        <div class="user-engagement-section">
+          <div class="engagement">
+              <div class="engagement-right slide-in-left">
+              <img
+                src="images/pic-6.webp"
+                alt="User engagement analytics"
+              /></div>
+            <div class="engagement-left slide-in-right">
+              <div class="section-header3 section-header-left">
+                <h2>User Engagement and <br> Retention Metrics</h2>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                  elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
+                  leo.
+                </p>
+              </div>
+              <ul class="engagement-list">
+                 <li class="engagement-item">
+                  <i class="fas fa-check"></i>
+                  <span>Conversion Rates and Funnel Metrics</span>
+                </li>
+                 <li class="engagement-item">
+                 <i class="fas fa-check"></i>
+                  <span>Churn and Customer Satisfaction Metrics</span>
+                </li>
+                 <li class="engagement-item">
+                 <i class="fas fa-check"></i>
+                  <span>Return on Investment (ROI) Metrics</span>
+                </li>
+                 <li class="engagement-item">
+                 <i class="fas fa-check"></i>
+                  <span>Key Performance Indicators (KPIs) for Startup Success</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    <section id="user-engagement1">
+      <div class="container">
+        <div class="user-engagement-section1">
+        <div class="engagement1">
+            <div class="section-header7">
+                <div class="left-text">
+                    <h2>Empowering Startups with Comprehensive Services</h2>
+                </div>
+                <div class="right-text">
+                    <p>
+                       Promotion an ourselves up otherwise my. High what each snug rich far yet easy. 
+                       In companions inhabiting mr principles at insensible do. 
+                       Heard their hoped enjoy vexed child for. Prosperous so occasional assistance it.
+                    </p>
+                </div>
+            </div>
+        </div>
+      </section>
+        <section id="user-engagement3"></section>
+           <div class="container">
+            <div class="user-engagement-section2">
+            <div class="services-grid">
+             <div class="service-card1 feature-box123">
+              <h3>Product Development</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+                tellus, lu  ctus nec ullamcorper mattis.
+              </p>
+            </div>
+           
+            <div class="service-card1 feature-box123">
+              <h3>Business Strategy</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+                tellus, luctus nec ullamcorper mattis.
+              </p>
+            </div>
+            <div class="service-card3 feature-box123">
+              <h3>Investment Support</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+                tellus, luctus nec ullamcorper mattis.
+              </p></div>
+          </div>
+          <div class="video-section">
+            <div class="video-container">
+              <iframe width="100%" height="435"
+                src="https://www.youtube.com/embed/pKJdI83EMWI?si=MgQb-Z-I9zBo6FPu"
+                title="Startup Success Story"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+      
+          <div class="achievement-stats">
+            <div class="stat-item">
+              <h3><span class="counter" data-target="15">0</span>+</h3>
+              <p>Years of Experience</p>
+            </div>
+            <div class="stat-item">
+              <h3><span class="counter" data-target="4000">0</span>K+</h3>
+              <p>Successful Projects</p>
+            </div>
+            <div class="stat-item1">
+               <h3><span class="counter" data-target="453">0</span></h3>
+              <p>Happy Customers</p>
+            </div>
+            <div class="stat-item">
+              <h3><span class="counter" data-target="98">0</span>%</h3>
+              <p>Client Retention</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+
+    <!-- Blog Section -->
+    <section id="blog1">
+      <div class="container">
+        <div class="section-header11">
+          <h2>Latest News</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing <br> Ut elit
+            tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+          </p>
+        </div>
+
+        <div class="blog-filters">
+          <button class="filter-btn active">All Post</button>
+          <button class="filter-btn">Development</button>
+          <button class="filter-btn">Investment</button>
+          <button class="filter-btn">Marketing</button>
+          <button class="filter-btn">Strategies</button>
+        </div>
+
+        <div class="blog-grid">
+          <article class="blog-card">
+            <div class="blog-image">
+              <img
+                src="images/Post-4.jpg"
+                alt="Startup Lessons: Stories of Success and Failure"
+              />
+            </div>
+            <div class="blog-content">
+              <h3>Startup Lessons: Stories of Success and Failure</h3>
+              <div class="blog-meta">
+                <span>July 10, 2023</span>
+                <span>3 Comments</span>
+              </div>
+              <p>
+                Did shy say mention enabled through elderly improve. As at so
+                believe account evening behaved hearted is. House is tiled we
+                aware. It ye greatest...
+              </p>
+              <a href="#" class="read-more">Read More</a>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-image">
+              <img
+                src="images/Post-6.jpg"
+                alt="Building a Strong Startup Team: Skills and Roles"
+              />
+            </div>
+            <div class="blog-content">
+              <h3>Building a Strong Startup Team: Skills and Roles</h3>
+              <div class="blog-meta">
+                <span>July 10, 2023</span>
+                <span>1 Comment</span>
+              </div>
+              <p>
+                Did shy say mention enabled through elderly improve. As at so
+                believe account evening behaved hearted is. House is tiled we
+                aware. It ye greatest...
+              </p>
+              <a href="#" class="read-more">Read More</a>
+            </div>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-image">
+              <img
+                src="images/Post-2.jpg"
+                alt="Navigating the Challenges of Startup Growth"
+              />
+            </div>
+            <div class="blog-content">
+              <h3>Navigating the Challenges of Startup Growth</h3>
+              <div class="blog-meta">
+                <span>July 10, 2023</span>
+                <span>1 Comment</span>
+              </div>
+              <p>
+                Did shy say mention enabled through elderly improve. As at so
+                believe account evening behaved hearted is. House is tiled we
+                aware. It ye greatest...
+              </p>
+              <a href="#" class="read-more">Read More</a>
+          </div>
+          </article>
+        
+        <article class="blog-card hidden">
+            <div class="blog-image">
+              <img
+                src="images/Post-5.jpg"
+                alt="Navigating the Challenges of Startup Growth"
+              />
+            </div>
+         <div class="blog-content">
+              <h3>From Idea to Execution: A Startup Journey</h3>
+              <div class="blog-meta">
+                <span>July 10, 2023</span>
+                <span>1 Comment</span>
+              </div>
+              <p>
+                Did shy say mention enabled through elderly improve. As at so
+                believe account evening behaved hearted is. House is tiled we
+                aware. It ye greatest...
+              </p>
+              <a href="#" class="read-more">Read More</a>
+          </div>
+          </article>
+        
+          <article class="blog-card hidden">
+            <div class="blog-image">
+              <img
+                src="images/Post-1.jpg"
+                alt="Navigating the Challenges of Startup Growth"
+              />
+            </div>
+        <div class="blog-content">
+              <h3>The Art of Pitching: How to Win Over Investors</h3>
+              <div class="blog-meta">
+                <span>July 10, 2023</span>
+                <span>1 Comment</span>
+              </div>
+              <p>
+                Did shy say mention enabled through elderly improve. As at so
+                believe account evening behaved hearted is. House is tiled we
+                aware. It ye greatest...
+              </p>
+              <a href="#" class="read-more">Read More</a>
+          </div>
+          </article>
+        
+          <article class="blog-card hidden">
+            <div class="blog-image">
+              <img
+                src="images/Post-3.jpg"
+                alt="Navigating the Challenges of Startup Growth"
+              />
+            </div>
+         <div class="blog-content">
+              <h3>10 Key Steps to Launching a Successful Startup</h3>
+              <div class="blog-meta">
+                <span>July 10, 2023</span>
+                <span>1 Comment</span>
+              </div>
+              <p>
+                Did shy say mention enabled through elderly improve. As at so
+                believe account evening behaved hearted is. House is tiled we
+                aware. It ye greatest...
+              </p>
+              <a href="#" class="read-more">Read More</a>
+          </div>
+          </article>
+        </div>
+       <button class="load-more-btn">Load More</button>
+      </div>
+    </section>
+
+    <!-- Customer Satisfaction Section -->
+   <section id="customer-satisfaction">
+      <div class="container">
+         <div class="section-header5"> 
+        <div class="solutions-section1  ">
+          <div class="solution1">
+            <div class="solutions-left1">
+              <h2>Keeping Customers Satisfied</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+                tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+              </p>
+              <ul class="solutions-list1">
+  <li class="solution-item1">
+    <div class="metric-list-item1">Exceptional Customer Support: Offering timely and personalized 
+      support to address customer inquiries and concerns.
+    </div>
+  </li>
+  <li class="solution-item1">
+    <div class="metric-list-item1">Continuous Improvement: Actively seeking feedback from customers
+      and implementing improvements based on their input.
+    </div>
+  </li>
+  <li class="solution-item1">
+    <div class="metric-list-item1">Proactive Communication: Keeping customers informed about
+      updates, new features, and relevant information through regular
+      communication channels.
+    </div>
+  </li>
+  <li class="solution-item1">
+    <div class="metric-list-item1">Personalization and Customization: Tailoring the product or
+      service to meet the specific needs and preferences of individual
+      customers.
+    </div>
+  </li>
+</ul>
+
+            </div>
+            <div class="block-container">
+              <img
+                src="images/pic-4.jpg"
+                alt="women" 
+              />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+  <div class="container">
+    <div class="section-header10">
+      <h2>What People Think About Us</h2>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-content">
+        <div class="rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur <br>laoreet cursus volutpat. 
+          Aliquam sit amet ligula et justo tincidunt laoreet non <br>vitae lorem. 
+          Aliquam porttitor tellus enim, eget commodo augue  porta ut. Maecenas<br> lobortis 
+          ligula vel tellus sagittis ullamcorperv vestibulum pellentesque cursutu
+      </div>
+      <div class="testimonial-author">
+        <div class="author-info">
+           <img src="images/Testimonial-2.jpg" alt="">
+          <h4>John Doe</h4>
+          <span>Sony CEO</span>
+         
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-content">
+        <div class="rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+            Curabitur laoreet cursus volutpat. Aliquam sit amet <br>ligula et justo tincidunt laoreet non vitae lorem.
+          </p>
+      </div>
+      <div class="testimonial-author">
+        <div class="author-info">
+          <img src="images/Testimonial-1.jpg" alt="">
+          <h4>Tom Jones</h4>
+          <span>Tesla CMO</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-content">
+        <div class="rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur <br>
+          laoreet cursus volutpat. Aliquam sit amet ligula et justo tincidunt <br> laoreet 
+          non vitae lorem. Aliquam porttitor tellus enim, eget commodo <br> augue porta ut.
+           Maecenas lobortis ligula vel tellus sagittis <br>
+          ullamcorperv vestibulum pellentesque cursutu.</p>
+      </div>
+      <div class="testimonial-author">
+        <div class="author-info">
+          <img src="images/Testimonial-3.jpg" alt="">
+          <h4>Mark Wilson</h4>
+          <span>Apple Manager</span>
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- ✅ Move dots OUTSIDE cards -->
+    <div class="slider-dots"></div>
+  </div>
+</section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter">
+      <div class="container">
+        <div class="newsletter-content">
+          <h2>Subscribe For Newsletter</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit">Subscribe</button>
+          </form>
+          <div class="newsletter-message">
+           
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <img src="images/Logo-Retina-2.webp" alt="MBL Logo" width="100" height="60" />
+            <ul><li>Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit.</li></ul>
+          </div>
+          <div class="footer-section">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="#">About Us</a></li> 
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Products</a></li>
+              <li><a href="#">Services</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Features</h3>
+            <ul>
+              <li><a href="#">Analytics</a></li>
+              <li><a href="#">Engagement</a></li>
+              <li><a href="#">Builder</a></li>
+              <li><a href="#">Publisher</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Help</h3>
+            <ul>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Conditions</a></li>
+              <li><a href="#">Privacy</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h3>Privacy</h3>
+            <ul><li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Conditions</a></li></ul>
+          </div>
+
+
+        </div> 
+           
+     
+         <div class="footer-bottom">
+            <div class="footer-bttext">
+              <p> <span class="copy-text">&copy; 2025 Created with </span>Royal Elementor Addons </p>
+             </div>
+            <div class="social-links">  
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-tumblr"></i></a>
+            </div>
+      </div>
+    </footer>
+
+
+
+   
+     <div class="floating-buttons">
+        <a href="tel:+1234567890" class="floating-btn call-btn" title="Call Us">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="#" class="floating-btn scroll-top-btn" title="Scroll to Top">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

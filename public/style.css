@@ -7,8 +7,8 @@
 body {
   height: 100%;
   width: 100%;
-  font-weight: "poppins",sans-serif;
-    background-color: whitesmoke;
+  font-weight: "poppins", sans-serif;
+  background-color: whitesmoke;
 }
 
 /* Header styles */
@@ -30,23 +30,20 @@ header {
   padding: 0 18px;
 }
 
-
-
 /* --- Panel Styles --- */
 .panel {
   position: fixed;
   right: -400px;
   top: 0;
   height: 100%;
-  width: 350px;
+  width: 300px;
   background-color: #fff;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
   overflow-y: auto;
   transition: right 0.3s ease-in-out;
   z-index: 9999;
   padding: 20px;
-   font-family: "Kanit", Sans-serif;
-  
+  font-family: "Kanit", Sans-serif;
 }
 
 .panel.open {
@@ -64,10 +61,9 @@ header {
 .header12 h2 {
   margin-top: 40px;
   font-family: "Kanit", Sans-serif;
-    font-size: 32px;
-    font-weight: 600;
-    color: #1F2933;
-  
+  font-size: 32px;
+  font-weight: 600;
+  color: #1f2933;
 }
 
 .form-container {
@@ -183,7 +179,7 @@ textarea::placeholder {
 .select-option {
   padding: 15px;
   cursor: pointer;
-  font-size: .9rem;
+  font-size: 0.9rem;
   transition: all 0.3s ease;
   border-bottom: 1px solid #f8f9fa;
 }
@@ -207,7 +203,7 @@ textarea::placeholder {
 .btn {
   background-color: #ef6c29;
   color: white;
-  padding: 10px 135px;
+  padding: 10px 115px;
   border: none;
   cursor: pointer;
   font-weight: 300;
@@ -361,6 +357,42 @@ section {
 }
 
 /*home section*/
+
+
+.rect-box.small img {
+    position: relative;     /* so child absolute positions are relative here */
+    width: 25px;
+  height: 40px;           /* same height */
+  
+  animation: shake 0.6s infinite;
+  transition: background-color 0.3s ease;
+}
+
+.rect-box.rect-box.large img {
+    position: absolute;     /* so child absolute positions are relative here */
+    width: 50px; 
+  height: 40px;           /* same height */
+  
+  animation: shake 0.6s infinite;
+  transition: background-color 0.3s ease;
+}
+
+
+
+/* Change color on hover */
+.rect-box img:hover {
+  background-color: blue;
+}
+
+/* Shaking animation */
+@keyframes shake {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-10px); }
+  50%  { transform: translateY(-30px); }
+  75%  { transform: translateZ(-10px); }
+  100% { transform: translateX(0); }
+}
+
 
 #home {
   padding: 60px;
@@ -566,10 +598,10 @@ section {
 }
 
 .text-content h2 {
-    font-family: "Poppins", Sans-serif;
-    font-size: 32px;
-    font-weight: 800;
-    color: #333333;
+  font-family: "Poppins", Sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #333333;
 }
 
 .text-content p {
@@ -579,13 +611,10 @@ section {
   margin-top: 10px;
 }
 
-
-
-
 .para {
   font-family: "Poppins", Sans-serif;
   margin-right: -100px;
-} 
+}
 
 .logos img {
   width: 85%;
@@ -593,8 +622,6 @@ section {
   border-radius: 14px;
   align-items: center;
 }
-
-
 
 hr {
   margin-left: -120px;
@@ -650,8 +677,8 @@ hr {
 
 .section-header1 h2 {
   text-align: center;
-  font-size: 2.5rem;
-  font-weight: 900;
+  font-size: 50px;
+  font-weight: 800;
   font-family: Sans-serif;
   color: white;
 }
@@ -696,8 +723,8 @@ hr {
 }
 
 .section-header4 h2 {
-  font-size: 2.5rem;
-  font-weight: 900;
+  font-size: 49px;
+  font-weight: 800;
   font-family: sans-serif;
   margin-bottom: 16px;
 }
@@ -760,7 +787,6 @@ hr {
 .section-header2 {
   text-align: left;
   color: #ffffff;
-
 }
 
 .metric-list {
@@ -774,8 +800,6 @@ hr {
   text-align: left;
   font-size: 50px;
   font-weight: 800;
-
-
 }
 
 .section-header2 p {
@@ -818,17 +842,13 @@ hr {
 }
 
 /* User Engagement Section */
-#user-engagement{
-    background-image: url("images/pic-3.jpg");
-
+#user-engagement {
+  background-image: url("images/pic-3.jpg");
 }
 
 .user-engagement-section {
   margin-top: 60px;
   margin-bottom: 45px;
-
-
-  
 }
 
 .section-header3 p {
@@ -930,7 +950,6 @@ hr {
   text-align: left;
 }
 
-
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -946,7 +965,7 @@ hr {
   border-radius: 15px;
   text-align: left;
   background-color: white;
- 
+
   border-radius: 15px solid black;
   color: #6b7280;
   font-size: 1rem;
@@ -961,8 +980,6 @@ hr {
   font-weight: 700;
   line-height: 0.9em;
 }
-
-
 
 .service-card3 {
   background-color: #ef6c29;
@@ -1004,7 +1021,6 @@ hr {
 
 /* Achievement Stats */
 .achievement-stats {
-
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   margin-top: 20px;
   display: grid;
@@ -1015,7 +1031,7 @@ hr {
   color: rgb(44, 43, 43);
   text-align: center;
   padding: 30px;
-    background-color: whitesmoke;
+  background-color: whitesmoke;
   position: relative;
 }
 
@@ -1062,6 +1078,7 @@ hr {
   font-family: "Poppins", Sans-serif;
 }
 /* Blog Section */
+
 #blog {
   background: #f8fafc;
   margin-top: 60px;
@@ -1115,16 +1132,25 @@ hr {
   margin-bottom: 40px;
 }
 
+
+
 .blog-card {
   transition: opacity 0.4s ease;
   opacity: 1;
   background: white;
   border-radius: 15px;
   overflow: hidden;
+  display: block;
 }
+
+
 .blog-card.hidden {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  display: none !important;
 }
+
 
 .blog-image img {
   width: 100%;
@@ -1676,6 +1702,8 @@ footer {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  
+ 
 }
 
 .floating-btn:hover {
@@ -1697,3 +1725,8 @@ footer {
 .scroll-top-btn {
   background: #ef6c29;
 }
+
+
+
+
+

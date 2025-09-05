@@ -5,6 +5,10 @@
 // Global variables
 let isSelectOpen = false;
 
+let currentForm = null;
+let currentCommentId = null;
+
+
 // ================================
 // DOM CONTENT LOADED EVENT
 // ================================
@@ -250,6 +254,109 @@ function toggleReadMore(postId) {
 }
 
 // ================================
+
+// REPLY FORM FUNCTIONALITY
+// ================================
+function toggleReplyForm(element, commentId) {
+  const avatarItem = element.closest(".avatar-item");
+
+  // If clicking the same reply link, toggle the form
+  if (currentCommentId === commentId && currentForm) {
+    if (currentForm.classList.contains("show")) {
+      hideCurrentForm();
+      return;
+    } else {
+      currentForm.classList.add("show");
+      return;
+    }
+  }
+
+  // Hide any existing form
+  hideCurrentForm();
+
+  // Create or show form for this comment
+  let form = avatarItem.querySelector(".comment-form");
+
+  if (!form) {
+    form = createReplyForm(commentId);
+    avatarItem.appendChild(form);
+  }
+
+  form.classList.add("show");
+  currentForm = form;
+  currentCommentId = commentId;
+
+  // Smooth scroll to form
+  setTimeout(() => {
+    form.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, 100);
+}
+
+function hideCurrentForm() {
+  if (currentForm) {
+    currentForm.classList.remove("show");
+    currentForm = null;
+    currentCommentId = null;
+  }
+}
+
+function createReplyForm(commentId) {
+  const formHTML = `
+      <div class="comment-form">
+          <h3>Leave a Reply</h3>
+          <form onsubmit="handleCommentSubmit(event, '${commentId}')">
+              <div class="form-group">
+                  <label for="author-${commentId}">Name <span>*</span></label>
+                  <input type="text" id="author-${commentId}" name="author" required placeholder="Your name">
+              </div>
+
+              <div class="form-group">
+                  <label for="email-${commentId}">Email <span>*</span></label>
+                  <input type="email" id="email-${commentId}" name="email" required placeholder="your.email@example.com">
+              </div>
+
+              <div class="form-group">
+                  <label for="url-${commentId}">Website</label>
+                  <input type="url" id="url-${commentId}" name="url" placeholder="https://yourwebsite.com (optional)">
+              </div>
+              
+              <div class="form-group">
+                  <label for="comment-${commentId}">Message <span>*</span></label>
+                  <textarea id="comment-${commentId}" name="comment" rows="8" required placeholder="Share your thoughts..."></textarea>
+              </div>
+
+              <button type="submit" class="submit-button">Submit</button>
+              
+          </form>
+      </div>
+  `;
+
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = formHTML;
+  return tempDiv.firstElementChild;
+}
+
+function handleCommentSubmit(event, commentId) {
+  event.preventDefault();
+
+  // Get form data
+  const form = event.target;
+  const formData = new FormData(form);
+
+  // Here you would normally send the data to your server
+  console.log("Comment submitted for:", commentId);
+  console.log("Form data:", Object.fromEntries(formData));
+
+  // Show success message (you can customize this)
+  alert("Thank you for your comment! It has been submitted for review.");
+
+  // Reset form and hide it
+  form.reset();
+  hideCurrentForm();
+}
+
+// ================================
+
 // ADDITIONAL UTILITY FUNCTIONS
 // ================================
 
@@ -280,3 +387,16 @@ function searchBlog(searchTerm) {
     }
   });
 }
+
+
+// Close form when clicking outside (optional - currently disabled)
+document.addEventListener("click", function (event) {
+  if (
+    currentForm &&
+    !currentForm.contains(event.target) &&
+    !event.target.classList.contains("reply-link")
+  ) {
+    // Don't auto-hide - let user manually close with cancel button
+  }
+});
+

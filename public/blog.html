@@ -78,10 +78,14 @@
     <h2>Blog</h2>
   </div>
 </section>
+
+
 <section class="wrap-text">
 <div class="container">
  <div class="blog-layout">
      <main class="main-content">
+      
+
         <div class="blog-posts-wrapper">
         
             <!--- Left Side: Main Content -->
@@ -92,17 +96,22 @@
                   <div class="post-image">
                     <img src="images/Post-4.jpg" alt="Startup Lessons">
                   </div>        
-                  <h1>Startup Lessons: Stories of Success and Failure</h1>
+
+                
+
+                  <h2>Startup Lessons: Stories of Success and Failure</h2>
+
                   <div class="post-meta">
                     <span class="post-date">July 10, 2023</span>
                     <span class="post-comments">3 Comments</span>
                   </div>
                   
                   <p>Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House is tiled we aware. It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household. Point could to built no hours smile sense.</p>
+
+                   <a href="javascript:void(0)" class="readMoreBtn" onclick="toggleReadMore(1)">Read More</a>
                   
-                  <button class="readMoreBtn" onclick="toggleReadMore(1)">Read More</button>
-                  
-                  <div class="moreContent" id="moreContent-1">
+                  <div class="moreContent" id="moreContent-1" style="display: none;">
+
                     <p>Smile spoke total few great had never their too. Amongst moments do in arrived at my replied. Fat weddings servants but man believed prospect. Companions understood is as especially pianoforte connection introduced. Nay newspaper can sportsman are admitting gentleman belonging his. Is oppose no he summer lovers twenty in. Not his difficulty boisterous surrounded bed. Seems folly if in given scale. Sex contented dependent conveying advantage can use.</p>
                     
                     <h2>Explore a Advantages of Our Startup</h2>
@@ -141,30 +150,42 @@
                     </div>
 
                     <div class="comment-avatars">
-                      <h4>Comment Authors</h4>
+                     
                       <div class="avatars-grid">
                         <div class="avatar-item">
-                          <img src="https://secure.gravatar.com/avatar/888c8c351c2d4e6dd45322a6f0be0604bb6fd468e89c5945eadbf7304ed6702b?s=60" alt="Donnie Denesik Avatar">
-                          <span>Donnie Denesik</span>
+                           <img src="https://secure.gravatar.com/avatar/888c8c351c2d4e6dd45322a6f0be0604bb6fd468e89c5945eadbf7304ed6702b?s=60" alt="Donnie Denesik Avatar">
+                          <div class="avatar-text">
+                           <span>Donnie Denesik</span>
                           <p>Et non voluptas qui eaque ut explicabo. Autem ipsa unde quia voluptas. Aut illum cumque eaque reiciendis aperiam. 
                             Sapiente iure necessitatibus veritatis et fuga. Nulla aut praesentium sapiente sapiente quos delectus. Aut qui at magnam 
                             iste asperiores ullam vitae. Neque voluptatem quaerat non. Sapiente soluta tempore nisi est et aut. Sed minus et sunt cumque molestiae facere porro. Quisquam odio sint quidem doloribus debitis enim reiciendis. 
                             Nobis vel velit omnis quasi quibusdam. Quia quos sed deleniti distinctio officiis quia.</p>
+                         <a class="reply-link" href="javascript:void(0)" onclick="toggleReplyForm(this, 'donnie')">Reply</a>
+                        </div>
                         </div>
                         <div class="avatar-item">
-                          <img src="https://secure.gravatar.com/avatar/cb6cadd343a9f1d6075143a702f5862a78bb0137d5286dde543738e68e812046?s=60" alt="Gayle O'Connell Avatar">
-                          <span>Gayle O'Connell</span>
-                          <p>Et ducimus placeat commodi minus voluptas. Ducimus tempora quos. Et architecto recusandae exercitationem tempora illum. molestiae impedit. Doloremque temporibus nostrum eum ipsam quam necessitatibus et. ut alias sed et est. Et quasi rerum. modi rem perferendis provident fugit</p>
-                        </div>
+                           <img src="https://secure.gravatar.com/avatar/cb6cadd343a9f1d6075143a702f5862a78bb0137d5286dde543738e68e812046?s=60" alt="Gayle O'Connell Avatar">
+                          <div class="avatar-text">
+                          <span class="avatar-name">Gayle O'Connell</span>
+                           <span class="post-date1">July 07, 2023 at 11:44 pm</span>
+                          <p><span class="highlight-orange">Et ducimus placeat commodi minus voluptas. Ducimus tempora quos.</span> Et architecto recusandae exercitationem 
+                            tempora illum. molestiae impedit. Doloremque temporibus nostrum eum ipsam quam necessitatibus <span class="highlight-orange"></span>et. ut alias 
+                            <span class="highlight-orange"> sed et est.</span> Et quasi<span class="highlight-orange"> rerum.</span>  modi rem perferendis provident fugit</p>
+                          <a class="reply-link" href="javascript:void(0)" onclick="toggleReplyForm(this, 'gayle')">Reply</a>
+                          </div>
+                      </div>
                         <div class="avatar-item">
                           <img src="https://secure.gravatar.com/avatar/aa95d4c3495429410f651b45c48e9076b237a9cf19a0e61e34d0d87ee2aec1c7?s=60" alt="Rosamond Rowe Avatar">
-                          <span>Rosamond Rowe</span>
-                          <p>Earum porro dolores accusantium eius sunt. Quasi corrupti suscipit. Vitae odit nihil omnis nisi et</p>
+                           <div class="avatar-text">
+                          <span class="avatar-name">Rosamond Rowe</span>
+                           <span class="post-date1">July 18, 2023 at 12:13 pm</span>
+                          <p> <span class="highlight-orange">Earum porro dolores accusantium eius sunt. Quasi corrupti suscipit.</span>Vitae odit nihil omnis nisi et</p>
+                        <a class="reply-link" href="javascript:void(0)" onclick="toggleReplyForm(this, 'rosamond')">Reply</a>
                         </div>
-                      </div>
+                        </div>
                     </div>
 
-                    <div class="comment-form">
+                    <div class="comment-form1">
                       <h3>Leave a Reply</h3>
                       <form>
                         <div class="form-group">
@@ -187,12 +208,14 @@
                           <textarea id="comment-1" name="comment" rows="8" required placeholder="Share your thoughts..."></textarea>
                         </div>
 
-                        <button type="submit" class="submit-button">Submit Comment</button>
+                        <button type="submit" class="submit-button">Submit</button>
                       </form>
                     </div>
                   </div>
                 </div>
               </article>
+
+
 
            
       
@@ -210,123 +233,11 @@
                     <span class="post-date">July 10, 2023</span>
                     <span class="post-comments">3 Comments</span>
                   </div>
-                  
                   <p>Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House is tiled we aware. It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household. Point could to built no hours smile sense.</p>
+                  <a href="javascript:void(0)" class="readMoreBtn" onclick="toggleReadMore(2)">Read More</a>
                   
-                  <button class="readMoreBtn" onclick="toggleReadMore(2)">Read More</button>
-                  
-                  <div class="moreContent" id="moreContent-2">
-                    <!-- Hidden content for post 2 (same structure as post 1) -->
-                    <p>Smile spoke total few great had never their too. Amongst moments do in arrived at my replied. Fat weddings servants but man believed prospect. Companions understood is as especially pianoforte connection introduced. Nay newspaper can sportsman are admitting gentleman belonging his. Is oppose no he summer lovers twenty in. Not his difficulty boisterous surrounded bed. Seems folly if in given scale. Sex contented dependent conveying advantage can use.</p>
-                    
-                    <h2>Building Your Dream Team</h2>
-                    
-                    <p>Smile spoke total few great had never their too. Amongst moments do in arrived at my replied. Fat weddings servants but man believed prospect. Companions understood is as especially pianoforte connection introduced. Nay newspaper can sportsman are admitting gentleman belonging his. Is oppose no he summer lovers twenty in. Not his difficulty boisterous surrounded bed. Seems folly if in given scale. Sex contented dependent conveying advantage can use.</p>
-                    
-                    <ul class="feature-list">
-                      <li><i class="fas fa-check-circle"></i> Identify key roles needed for your startup</li>
-                      <li><i class="fas fa-check-circle"></i> Look for complementary skill sets</li>
-                      <li><i class="fas fa-check-circle"></i> Prioritize cultural fit alongside expertise</li>
-                      <li><i class="fas fa-check-circle"></i> Consider equity distribution for early team members</li>
-                    </ul>
-                    
-                    <p>Nay newspaper can sportsman are admitting gentleman belonging his. Is oppose no he summer lovers twenty in. Not his difficulty boisterous surrounded bed. Seems folly if in given scale. Sex contented dependent conveying advantage can use.</p>
-                    
-                    <div class="content-columns">
-                      <div class="column">
-                        <p>Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House is tiled we aware. It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household. Point could to built no hours smile sense.Smile spoke total few great had never their too. Amongst moments do in arrived at my.Point could to built no hours smile sense.Smile spoke total few great had never their too.</p>
-                      </div>
-                      <div class="column">
-                        <img src="images/Post-6.jpg" alt="Team Building">
-                      </div>
-                    </div>
-                    
-                    <p>Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House is tiled we aware. It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household. Point could to built no hours smile sense.Smile spoke total few great had never their too. Amongst moments do in arrived at my replied.</p>
-                    
-                    <p>Fat weddings servants but man believed prospect. Companions understood is as especially pianoforte connection introduced. Nay newspaper can sportsman are admitting gentleman belonging his. Is oppose no he summer lovers twenty in. Not his difficulty boisterous surrounded bed. Seems folly if in given scale. Sex contented dependent conveying advantage can use.</p>
-                    
-                    <div class="post-tags">
-                      <span>Team</span>
-                      <span>Management</span>
-                    </div>
-                    
-                    <div class="comments-header">
-                      <h3>3 Comments</h3>
-                    </div>
+                  <div class="moreContent" id="moreContent-2" style="display: none;">
 
-                    <div class="comment-avatars">
-                      <h4>Comment Authors</h4>
-                      <div class="avatars-grid">
-                        <div class="avatar-item">
-                          <img src="https://secure.gravatar.com/avatar/888c8c351c2d4e6dd45322a6f0be0604bb6fd468e89c5945eadbf7304ed6702b?s=60" alt="Donnie Denesik Avatar">
-                          <span>Donnie Denesik</span>
-                          <p>Et non voluptas qui eaque ut explicabo. Autem ipsa unde quia voluptas. Aut illum cumque eaque reiciendis aperiam. 
-                            Sapiente iure necessitatibus veritatis et fuga. Nulla aut praesentium sapiente sapiente quos delectus. Aut qui at magnam 
-                            iste asperiores ullam vitae. Neque voluptatem quaerat non. Sapiente soluta tempore nisi est et aut. Sed minus et sunt cumque molestiae facere porro. Quisquam odio sint quidem doloribus debitis enim reiciendis. 
-                            Nobis vel velit omnis quasi quibusdam. Quia quos sed deleniti distinctio officiis quia.</p>
-                        </div>
-                        <div class="avatar-item">
-                          <img src="https://secure.gravatar.com/avatar/cb6cadd343a9f1d6075143a702f5862a78bb0137d5286dde543738e68e812046?s=60" alt="Gayle O'Connell Avatar">
-                          <span>Gayle O'Connell</span>
-                          <p>Et ducimus placeat commodi minus voluptas. Ducimus tempora quos. Et architecto recusandae exercitationem tempora illum. molestiae impedit. Doloremque temporibus nostrum eum ipsam quam necessitatibus et. ut alias sed et est. Et quasi rerum. modi rem perferendis provident fugit</p>
-                        </div>
-                        <div class="avatar-item">
-                          <img src="https://secure.gravatar.com/avatar/aa95d4c3495429410f651b45c48e9076b237a9cf19a0e61e34d0d87ee2aec1c7?s=60" alt="Rosamond Rowe Avatar">
-                          <span>Rosamond Rowe</span>
-                          <p>Earum porro dolores accusantium eius sunt. Quasi corrupti suscipit. Vitae odit nihil omnis nisi et</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="comment-form">
-                      <h3>Leave a Reply</h3>
-                      <form>
-                        <div class="form-group">
-                          <label for="author-2">Name <span>*</span></label>
-                          <input type="text" id="author-2" name="author" required placeholder="Your name">
-                        </div>
-
-                        <div class="form-group">
-                          <label for="email-2">Email <span>*</span></label>
-                          <input type="email" id="email-2" name="email" required placeholder="your.email@example.com">
-                        </div>
-
-                        <div class="form-group">
-                          <label for="url-2">Website</label>
-                          <input type="url" id="url-2" name="url" placeholder="https://yourwebsite.com (optional)">
-                        </div>
-                        
-                        <div class="form-group">
-                          <label for="comment-2">Message <span>*</span></label>
-                          <textarea id="comment-2" name="comment" rows="8" required placeholder="Share your thoughts..."></textarea>
-                        </div>
-
-                        <button type="submit" class="submit-button">Submit Comment</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-         <!---post3-->
-               
-         
-            <article class="blog-post" id="post-3">
-                <div class="post-content">
-                  <div class="post-image">
-                    <img src="images/Post-2.jpg" alt="Startup Lessons">
-                  </div>        
-                  <h1>Navigating the Challenges of Startup Growth</h1>
-                  <div class="post-meta">
-                    <span class="post-date">July 10, 2023</span>
-                    <span class="post-comments">3 Comments</span>
-                  </div>
-                  
-                  <p>Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House is tiled we aware. It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household. Point could to built no hours smile sense.</p>
-                  
-                  <button class="readMoreBtn" onclick="toggleReadMore(3)">Read More</button>
-                  
-                  <div class="moreContent" id="moreContent-3">
                     <p>Smile spoke total few great had never their too. Amongst moments do in arrived at my replied. Fat weddings servants but man believed prospect. Companions understood is as especially pianoforte connection introduced. Nay newspaper can sportsman are admitting gentleman belonging his. Is oppose no he summer lovers twenty in. Not his difficulty boisterous surrounded bed. Seems folly if in given scale. Sex contented dependent conveying advantage can use.</p>
                     
                     <h2>Explore a Advantages of Our Startup</h2>
@@ -365,30 +276,42 @@
                     </div>
 
                     <div class="comment-avatars">
-                      <h4>Comment Authors</h4>
+                     
                       <div class="avatars-grid">
                         <div class="avatar-item">
-                          <img src="https://secure.gravatar.com/avatar/888c8c351c2d4e6dd45322a6f0be0604bb6fd468e89c5945eadbf7304ed6702b?s=60" alt="Donnie Denesik Avatar">
-                          <span>Donnie Denesik</span>
+                           <img src="https://secure.gravatar.com/avatar/888c8c351c2d4e6dd45322a6f0be0604bb6fd468e89c5945eadbf7304ed6702b?s=60" alt="Donnie Denesik Avatar">
+                          <div class="avatar-text">
+                           <span>Donnie Denesik</span>
                           <p>Et non voluptas qui eaque ut explicabo. Autem ipsa unde quia voluptas. Aut illum cumque eaque reiciendis aperiam. 
                             Sapiente iure necessitatibus veritatis et fuga. Nulla aut praesentium sapiente sapiente quos delectus. Aut qui at magnam 
                             iste asperiores ullam vitae. Neque voluptatem quaerat non. Sapiente soluta tempore nisi est et aut. Sed minus et sunt cumque molestiae facere porro. Quisquam odio sint quidem doloribus debitis enim reiciendis. 
                             Nobis vel velit omnis quasi quibusdam. Quia quos sed deleniti distinctio officiis quia.</p>
+                         <a class="reply-link" href="javascript:void(0)" onclick="toggleReplyForm(this, 'donnie')">Reply</a>
+                        </div>
                         </div>
                         <div class="avatar-item">
-                          <img src="https://secure.gravatar.com/avatar/cb6cadd343a9f1d6075143a702f5862a78bb0137d5286dde543738e68e812046?s=60" alt="Gayle O'Connell Avatar">
-                          <span>Gayle O'Connell</span>
-                          <p>Et ducimus placeat commodi minus voluptas. Ducimus tempora quos. Et architecto recusandae exercitationem tempora illum. molestiae impedit. Doloremque temporibus nostrum eum ipsam quam necessitatibus et. ut alias sed et est. Et quasi rerum. modi rem perferendis provident fugit</p>
-                        </div>
+                           <img src="https://secure.gravatar.com/avatar/cb6cadd343a9f1d6075143a702f5862a78bb0137d5286dde543738e68e812046?s=60" alt="Gayle O'Connell Avatar">
+                          <div class="avatar-text">
+                          <span class="avatar-name">Gayle O'Connell</span>
+                           <span class="post-date1">July 07, 2023 at 11:44 pm</span>
+                          <p><span class="highlight-orange">Et ducimus placeat commodi minus voluptas. Ducimus tempora quos.</span> Et architecto recusandae exercitationem 
+                            tempora illum. molestiae impedit. Doloremque temporibus nostrum eum ipsam quam necessitatibus <span class="highlight-orange"></span>et. ut alias 
+                            <span class="highlight-orange"> sed et est.</span> Et quasi<span class="highlight-orange"> rerum.</span>  modi rem perferendis provident fugit</p>
+                          <a class="reply-link" href="javascript:void(0)" onclick="toggleReplyForm(this, 'gayle')">Reply</a>
+                          </div>
+                      </div>
                         <div class="avatar-item">
                           <img src="https://secure.gravatar.com/avatar/aa95d4c3495429410f651b45c48e9076b237a9cf19a0e61e34d0d87ee2aec1c7?s=60" alt="Rosamond Rowe Avatar">
-                          <span>Rosamond Rowe</span>
-                          <p>Earum porro dolores accusantium eius sunt. Quasi corrupti suscipit. Vitae odit nihil omnis nisi et</p>
+                           <div class="avatar-text">
+                          <span class="avatar-name">Rosamond Rowe</span>
+                           <span class="post-date1">July 18, 2023 at 12:13 pm</span>
+                          <p> <span class="highlight-orange">Earum porro dolores accusantium eius sunt. Quasi corrupti suscipit.</span>Vitae odit nihil omnis nisi et</p>
+                        <a class="reply-link" href="javascript:void(0)" onclick="toggleReplyForm(this, 'rosamond')">Reply</a>
                         </div>
-                      </div>
+                        </div>
                     </div>
 
-                    <div class="comment-form">
+                    <div class="comment-form1">
                       <h3>Leave a Reply</h3>
                       <form>
                         <div class="form-group">
@@ -411,12 +334,136 @@
                           <textarea id="comment-1" name="comment" rows="8" required placeholder="Share your thoughts..."></textarea>
                         </div>
 
-                        <button type="submit" class="submit-button">Submit Comment</button>
+                        <button type="submit" class="submit-button">Submit</button>
                       </form>
                     </div>
                   </div>
                 </div>
               </article>
+
+                  
+         <!---post3-->
+               
+         
+            <article class="blog-post" id="post-3">
+                <div class="post-content">
+                  <div class="post-image">
+                    <img src="images/Post-2.jpg" alt="Startup Lessons">
+                  </div>        
+                  <h1>Navigating the Challenges of Startup Growth</h1>
+                  <div class="post-meta">
+                    <span class="post-date">July 10, 2023</span>
+                    <span class="post-comments">3 Comments</span>
+                  </div>
+                  
+                  <p>Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House is tiled we aware. It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household. Point could to built no hours smile sense.</p>
+                  
+                  <a href="javascript:void(0)" class="readMoreBtn" onclick="toggleReadMore(3)">Read More</a>
+                  
+                  <div class="moreContent" id="moreContent-3" style="display: none;">
+                    <p>Smile spoke total few great had never their too. Amongst moments do in arrived at my replied. Fat weddings servants but man believed prospect. Companions understood is as especially pianoforte connection introduced. Nay newspaper can sportsman are admitting gentleman belonging his. Is oppose no he summer lovers twenty in. Not his difficulty boisterous surrounded bed. Seems folly if in given scale. Sex contented dependent conveying advantage can use.</p>
+                    
+                    <h2>Explore a Advantages of Our Startup</h2>
+                    
+                    <p>Smile spoke total few great had never their too. Amongst moments do in arrived at my replied. Fat weddings servants but man believed prospect. Companions understood is as especially pianoforte connection introduced. Nay newspaper can sportsman are admitting gentleman belonging his. Is oppose no he summer lovers twenty in. Not his difficulty boisterous surrounded bed. Seems folly if in given scale. Sex contented dependent conveying advantage can use.</p>
+                    
+                    <ul class="feature-list">
+                      <li><i class="fas fa-check-circle"></i> Access ebooks offline</li>
+                      <li><i class="fas fa-check-circle"></i> Promotions for our valued customers</li>
+                      <li><i class="fas fa-check-circle"></i> Secure payment options for your convenience</li>
+                      <li><i class="fas fa-check-circle"></i> Secure payment options for your convenience</li>
+                    </ul>
+                    
+                    <p>Nay newspaper can sportsman are admitting gentleman belonging his. Is oppose no he summer lovers twenty in. Not his difficulty boisterous surrounded bed. Seems folly if in given scale. Sex contented dependent conveying advantage can use.</p>
+                    
+                    <div class="content-columns">
+                      <div class="column">
+                        <p>Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House is tiled we aware. It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household. Point could to built no hours smile sense.Smile spoke total few great had never their too. Amongst moments do in arrived at my.Point could to built no hours smile sense.Smile spoke total few great had never their too.</p>
+                      </div>
+                      <div class="column">
+                        <img src="images/Post-5.jpg" alt="Startup Content">
+                      </div>
+                    </div>
+                    
+                    <p>Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House is tiled we aware. It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household. Point could to built no hours smile sense.Smile spoke total few great had never their too. Amongst moments do in arrived at my replied.</p>
+                    
+                    <p>Fat weddings servants but man believed prospect. Companions understood is as especially pianoforte connection introduced. Nay newspaper can sportsman are admitting gentleman belonging his. Is oppose no he summer lovers twenty in. Not his difficulty boisterous surrounded bed. Seems folly if in given scale. Sex contented dependent conveying advantage can use.</p>
+                    
+                    <div class="post-tags">
+                      <span>Development</span>
+                      <span>Marketing</span>
+                    </div>
+                    
+                    <div class="comments-header">
+                      <h3>3 Comments</h3>
+                    </div>
+
+                    <div class="comment-avatars">
+                     
+                      <div class="avatars-grid">
+                        <div class="avatar-item">
+                           <img src="https://secure.gravatar.com/avatar/888c8c351c2d4e6dd45322a6f0be0604bb6fd468e89c5945eadbf7304ed6702b?s=60" alt="Donnie Denesik Avatar">
+                          <div class="avatar-text">
+                           <span>Donnie Denesik</span>
+                          <p>Et non voluptas qui eaque ut explicabo. Autem ipsa unde quia voluptas. Aut illum cumque eaque reiciendis aperiam. 
+                            Sapiente iure necessitatibus veritatis et fuga. Nulla aut praesentium sapiente sapiente quos delectus. Aut qui at magnam 
+                            iste asperiores ullam vitae. Neque voluptatem quaerat non. Sapiente soluta tempore nisi est et aut. Sed minus et sunt cumque molestiae facere porro. Quisquam odio sint quidem doloribus debitis enim reiciendis. 
+                            Nobis vel velit omnis quasi quibusdam. Quia quos sed deleniti distinctio officiis quia.</p>
+                         <a class="reply-link" href="javascript:void(0)" onclick="toggleReplyForm(this, 'donnie')">Reply</a>
+                        </div>
+                        </div>
+                        <div class="avatar-item">
+                           <img src="https://secure.gravatar.com/avatar/cb6cadd343a9f1d6075143a702f5862a78bb0137d5286dde543738e68e812046?s=60" alt="Gayle O'Connell Avatar">
+                          <div class="avatar-text">
+                          <span class="avatar-name">Gayle O'Connell</span>
+                           <span class="post-date1">July 07, 2023 at 11:44 pm</span>
+                          <p><span class="highlight-orange">Et ducimus placeat commodi minus voluptas. Ducimus tempora quos.</span> Et architecto recusandae exercitationem 
+                            tempora illum. molestiae impedit. Doloremque temporibus nostrum eum ipsam quam necessitatibus <span class="highlight-orange"></span>et. ut alias 
+                            <span class="highlight-orange"> sed et est.</span> Et quasi<span class="highlight-orange"> rerum.</span>  modi rem perferendis provident fugit</p>
+                          <a class="reply-link" href="javascript:void(0)" onclick="toggleReplyForm(this, 'gayle')">Reply</a>
+                          </div>
+                      </div>
+                        <div class="avatar-item">
+                          <img src="https://secure.gravatar.com/avatar/aa95d4c3495429410f651b45c48e9076b237a9cf19a0e61e34d0d87ee2aec1c7?s=60" alt="Rosamond Rowe Avatar">
+                           <div class="avatar-text">
+                          <span class="avatar-name">Rosamond Rowe</span>
+                           <span class="post-date1">July 18, 2023 at 12:13 pm</span>
+                          <p> <span class="highlight-orange">Earum porro dolores accusantium eius sunt. Quasi corrupti suscipit.</span>Vitae odit nihil omnis nisi et</p>
+                        <a class="reply-link" href="javascript:void(0)" onclick="toggleReplyForm(this, 'rosamond')">Reply</a>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="comment-form1">
+                      <h3>Leave a Reply</h3>
+                      <form>
+                        <div class="form-group">
+                          <label for="author-1">Name <span>*</span></label>
+                          <input type="text" id="author-1" name="author" required placeholder="Your name">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="email-1">Email <span>*</span></label>
+                          <input type="email" id="email-1" name="email" required placeholder="your.email@example.com">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="url-1">Website</label>
+                          <input type="url" id="url-1" name="url" placeholder="https://yourwebsite.com (optional)">
+                        </div>
+                        
+                        <div class="form-group">
+                          <label for="comment-1">Message <span>*</span></label>
+                          <textarea id="comment-1" name="comment" rows="8" required placeholder="Share your thoughts..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-button">Submit</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
 
            
           
@@ -436,9 +483,9 @@
                   
                   <p>Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House is tiled we aware. It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household. Point could to built no hours smile sense.</p>
                   
-                  <button class="readMoreBtn" onclick="toggleReadMore(4)">Read More</button>
+                  <a href="javascript:void(0)" class="readMoreBtn" onclick="toggleReadMore(4)">Read More</a>
                   
-                  <div class="moreContent" id="moreContent-4">
+                  <div class="moreContent" id="moreContent-4" style="display: none;">
                     <p>Smile spoke total few great had never their too. Amongst moments do in arrived at my replied. Fat weddings servants but man believed prospect. Companions understood is as especially pianoforte connection introduced. Nay newspaper can sportsman are admitting gentleman belonging his. Is oppose no he summer lovers twenty in. Not his difficulty boisterous surrounded bed. Seems folly if in given scale. Sex contented dependent conveying advantage can use.</p>
                     
                     <h2>Explore a Advantages of Our Startup</h2>
@@ -477,30 +524,42 @@
                     </div>
 
                     <div class="comment-avatars">
-                      <h4>Comment Authors</h4>
+                     
                       <div class="avatars-grid">
                         <div class="avatar-item">
-                          <img src="https://secure.gravatar.com/avatar/888c8c351c2d4e6dd45322a6f0be0604bb6fd468e89c5945eadbf7304ed6702b?s=60" alt="Donnie Denesik Avatar">
-                          <span>Donnie Denesik</span>
+                           <img src="https://secure.gravatar.com/avatar/888c8c351c2d4e6dd45322a6f0be0604bb6fd468e89c5945eadbf7304ed6702b?s=60" alt="Donnie Denesik Avatar">
+                          <div class="avatar-text">
+                           <span>Donnie Denesik</span>
                           <p>Et non voluptas qui eaque ut explicabo. Autem ipsa unde quia voluptas. Aut illum cumque eaque reiciendis aperiam. 
                             Sapiente iure necessitatibus veritatis et fuga. Nulla aut praesentium sapiente sapiente quos delectus. Aut qui at magnam 
                             iste asperiores ullam vitae. Neque voluptatem quaerat non. Sapiente soluta tempore nisi est et aut. Sed minus et sunt cumque molestiae facere porro. Quisquam odio sint quidem doloribus debitis enim reiciendis. 
                             Nobis vel velit omnis quasi quibusdam. Quia quos sed deleniti distinctio officiis quia.</p>
+                         <a class="reply-link" href="javascript:void(0)" onclick="toggleReplyForm(this, 'donnie')">Reply</a>
+                        </div>
                         </div>
                         <div class="avatar-item">
-                          <img src="https://secure.gravatar.com/avatar/cb6cadd343a9f1d6075143a702f5862a78bb0137d5286dde543738e68e812046?s=60" alt="Gayle O'Connell Avatar">
-                          <span>Gayle O'Connell</span>
-                          <p>Et ducimus placeat commodi minus voluptas. Ducimus tempora quos. Et architecto recusandae exercitationem tempora illum. molestiae impedit. Doloremque temporibus nostrum eum ipsam quam necessitatibus et. ut alias sed et est. Et quasi rerum. modi rem perferendis provident fugit</p>
-                        </div>
+                           <img src="https://secure.gravatar.com/avatar/cb6cadd343a9f1d6075143a702f5862a78bb0137d5286dde543738e68e812046?s=60" alt="Gayle O'Connell Avatar">
+                          <div class="avatar-text">
+                          <span class="avatar-name">Gayle O'Connell</span>
+                           <span class="post-date1">July 07, 2023 at 11:44 pm</span>
+                          <p><span class="highlight-orange">Et ducimus placeat commodi minus voluptas. Ducimus tempora quos.</span> Et architecto recusandae exercitationem 
+                            tempora illum. molestiae impedit. Doloremque temporibus nostrum eum ipsam quam necessitatibus <span class="highlight-orange"></span>et. ut alias 
+                            <span class="highlight-orange"> sed et est.</span> Et quasi<span class="highlight-orange"> rerum.</span>  modi rem perferendis provident fugit</p>
+                          <a class="reply-link" href="javascript:void(0)" onclick="toggleReplyForm(this, 'gayle')">Reply</a>
+                          </div>
+                      </div>
                         <div class="avatar-item">
                           <img src="https://secure.gravatar.com/avatar/aa95d4c3495429410f651b45c48e9076b237a9cf19a0e61e34d0d87ee2aec1c7?s=60" alt="Rosamond Rowe Avatar">
-                          <span>Rosamond Rowe</span>
-                          <p>Earum porro dolores accusantium eius sunt. Quasi corrupti suscipit. Vitae odit nihil omnis nisi et</p>
+                           <div class="avatar-text">
+                          <span class="avatar-name">Rosamond Rowe</span>
+                           <span class="post-date1">July 18, 2023 at 12:13 pm</span>
+                          <p> <span class="highlight-orange">Earum porro dolores accusantium eius sunt. Quasi corrupti suscipit.</span>Vitae odit nihil omnis nisi et</p>
+                        <a class="reply-link" href="javascript:void(0)" onclick="toggleReplyForm(this, 'rosamond')">Reply</a>
                         </div>
-                      </div>
+                        </div>
                     </div>
 
-                    <div class="comment-form">
+                    <div class="comment-form1">
                       <h3>Leave a Reply</h3>
                       <form>
                         <div class="form-group">
@@ -523,7 +582,7 @@
                           <textarea id="comment-1" name="comment" rows="8" required placeholder="Share your thoughts..."></textarea>
                         </div>
 
-                        <button type="submit" class="submit-button">Submit Comment</button>
+                        <button type="submit" class="submit-button">Submit</button>
                       </form>
                     </div>
                   </div>
@@ -547,9 +606,9 @@
                   
                   <p>Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House is tiled we aware. It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household. Point could to built no hours smile sense.</p>
                   
-                  <button class="readMoreBtn" onclick="toggleReadMore(5)">Read More</button>
+                  <a href="javascript:void(0)" class="readMoreBtn" onclick="toggleReadMore(5)">Read More</a>
                   
-                  <div class="moreContent" id="moreContent-5">
+                  <div class="moreContent" id="moreContent-5" style="display: none;">
                     <p>Smile spoke total few great had never their too. Amongst moments do in arrived at my replied. Fat weddings servants but man believed prospect. Companions understood is as especially pianoforte connection introduced. Nay newspaper can sportsman are admitting gentleman belonging his. Is oppose no he summer lovers twenty in. Not his difficulty boisterous surrounded bed. Seems folly if in given scale. Sex contented dependent conveying advantage can use.</p>
                     
                     <h2>Explore a Advantages of Our Startup</h2>
@@ -588,30 +647,42 @@
                     </div>
 
                     <div class="comment-avatars">
-                      <h4>Comment Authors</h4>
+                     
                       <div class="avatars-grid">
                         <div class="avatar-item">
-                          <img src="https://secure.gravatar.com/avatar/888c8c351c2d4e6dd45322a6f0be0604bb6fd468e89c5945eadbf7304ed6702b?s=60" alt="Donnie Denesik Avatar">
-                          <span>Donnie Denesik</span>
+                           <img src="https://secure.gravatar.com/avatar/888c8c351c2d4e6dd45322a6f0be0604bb6fd468e89c5945eadbf7304ed6702b?s=60" alt="Donnie Denesik Avatar">
+                          <div class="avatar-text">
+                           <span>Donnie Denesik</span>
                           <p>Et non voluptas qui eaque ut explicabo. Autem ipsa unde quia voluptas. Aut illum cumque eaque reiciendis aperiam. 
                             Sapiente iure necessitatibus veritatis et fuga. Nulla aut praesentium sapiente sapiente quos delectus. Aut qui at magnam 
                             iste asperiores ullam vitae. Neque voluptatem quaerat non. Sapiente soluta tempore nisi est et aut. Sed minus et sunt cumque molestiae facere porro. Quisquam odio sint quidem doloribus debitis enim reiciendis. 
                             Nobis vel velit omnis quasi quibusdam. Quia quos sed deleniti distinctio officiis quia.</p>
+                         <a class="reply-link" href="javascript:void(0)" onclick="toggleReplyForm(this, 'donnie')">Reply</a>
+                        </div>
                         </div>
                         <div class="avatar-item">
-                          <img src="https://secure.gravatar.com/avatar/cb6cadd343a9f1d6075143a702f5862a78bb0137d5286dde543738e68e812046?s=60" alt="Gayle O'Connell Avatar">
-                          <span>Gayle O'Connell</span>
-                          <p>Et ducimus placeat commodi minus voluptas. Ducimus tempora quos. Et architecto recusandae exercitationem tempora illum. molestiae impedit. Doloremque temporibus nostrum eum ipsam quam necessitatibus et. ut alias sed et est. Et quasi rerum. modi rem perferendis provident fugit</p>
-                        </div>
+                           <img src="https://secure.gravatar.com/avatar/cb6cadd343a9f1d6075143a702f5862a78bb0137d5286dde543738e68e812046?s=60" alt="Gayle O'Connell Avatar">
+                          <div class="avatar-text">
+                          <span class="avatar-name">Gayle O'Connell</span>
+                           <span class="post-date1">July 07, 2023 at 11:44 pm</span>
+                          <p><span class="highlight-orange">Et ducimus placeat commodi minus voluptas. Ducimus tempora quos.</span> Et architecto recusandae exercitationem 
+                            tempora illum. molestiae impedit. Doloremque temporibus nostrum eum ipsam quam necessitatibus <span class="highlight-orange"></span>et. ut alias 
+                            <span class="highlight-orange"> sed et est.</span> Et quasi<span class="highlight-orange"> rerum.</span>  modi rem perferendis provident fugit</p>
+                          <a class="reply-link" href="javascript:void(0)" onclick="toggleReplyForm(this, 'gayle')">Reply</a>
+                          </div>
+                      </div>
                         <div class="avatar-item">
                           <img src="https://secure.gravatar.com/avatar/aa95d4c3495429410f651b45c48e9076b237a9cf19a0e61e34d0d87ee2aec1c7?s=60" alt="Rosamond Rowe Avatar">
-                          <span>Rosamond Rowe</span>
-                          <p>Earum porro dolores accusantium eius sunt. Quasi corrupti suscipit. Vitae odit nihil omnis nisi et</p>
+                           <div class="avatar-text">
+                          <span class="avatar-name">Rosamond Rowe</span>
+                           <span class="post-date1">July 18, 2023 at 12:13 pm</span>
+                          <p> <span class="highlight-orange">Earum porro dolores accusantium eius sunt. Quasi corrupti suscipit.</span>Vitae odit nihil omnis nisi et</p>
+                        <a class="reply-link" href="javascript:void(0)" onclick="toggleReplyForm(this, 'rosamond')">Reply</a>
                         </div>
-                      </div>
+                        </div>
                     </div>
 
-                    <div class="comment-form">
+                    <div class="comment-form1">
                       <h3>Leave a Reply</h3>
                       <form>
                         <div class="form-group">
@@ -634,7 +705,7 @@
                           <textarea id="comment-1" name="comment" rows="8" required placeholder="Share your thoughts..."></textarea>
                         </div>
 
-                        <button type="submit" class="submit-button">Submit Comment</button>
+                        <button type="submit" class="submit-button">Submit</button>
                       </form>
                     </div>
                   </div>
@@ -660,10 +731,10 @@
                   
                   <p>Did shy say mention enabled through elderly improve. As at so believe account evening behaved hearted is. House is tiled we aware. It ye greatest removing concerns an overcame appetite. Manner result square father boy behind its his. Their above spoke match ye mr right oh as first. Be my depending to believing perfectly concealed household. Point could to built no hours smile sense.</p>
                   
-                  <button class="readMoreBtn" onclick="toggleReadMore(6)">Read More</button>
+                  <a href="javascript:void(0)" class="readMoreBtn" onclick="toggleReadMore(6)">Read More</a>
                   
-                  <div class="moreContent" id="moreContent-6">
-                    <p>Smile spoke total few great had never their too. Amongst moments do in arrived at my replied. Fat weddings servants but man believed prospect. Companions understood is as especially pianoforte connection introduced. Nay newspaper can sportsman are admitting gentleman belonging his. Is oppose no he summer lovers twenty in. Not his difficulty boisterous surrounded bed. Seems folly if in given scale. Sex contented dependent conveying advantage can use.</p>
+                  <div class="moreContent" id="moreContent-6" style="display: none;">
+                  <p>Smile spoke total few great had never their too. Amongst moments do in arrived at my replied. Fat weddings servants but man believed prospect. Companions understood is as especially pianoforte connection introduced. Nay newspaper can sportsman are admitting gentleman belonging his. Is oppose no he summer lovers twenty in. Not his difficulty boisterous surrounded bed. Seems folly if in given scale. Sex contented dependent conveying advantage can use.</p>
                     
                     <h2>Explore a Advantages of Our Startup</h2>
                     
@@ -701,30 +772,42 @@
                     </div>
 
                     <div class="comment-avatars">
-                      <h4>Comment Authors</h4>
+                     
                       <div class="avatars-grid">
                         <div class="avatar-item">
-                          <img src="https://secure.gravatar.com/avatar/888c8c351c2d4e6dd45322a6f0be0604bb6fd468e89c5945eadbf7304ed6702b?s=60" alt="Donnie Denesik Avatar">
-                          <span>Donnie Denesik</span>
+                           <img src="https://secure.gravatar.com/avatar/888c8c351c2d4e6dd45322a6f0be0604bb6fd468e89c5945eadbf7304ed6702b?s=60" alt="Donnie Denesik Avatar">
+                          <div class="avatar-text">
+                           <span>Donnie Denesik</span>
                           <p>Et non voluptas qui eaque ut explicabo. Autem ipsa unde quia voluptas. Aut illum cumque eaque reiciendis aperiam. 
                             Sapiente iure necessitatibus veritatis et fuga. Nulla aut praesentium sapiente sapiente quos delectus. Aut qui at magnam 
                             iste asperiores ullam vitae. Neque voluptatem quaerat non. Sapiente soluta tempore nisi est et aut. Sed minus et sunt cumque molestiae facere porro. Quisquam odio sint quidem doloribus debitis enim reiciendis. 
                             Nobis vel velit omnis quasi quibusdam. Quia quos sed deleniti distinctio officiis quia.</p>
+                         <a class="reply-link" href="javascript:void(0)" onclick="toggleReplyForm(this, 'donnie')">Reply</a>
+                        </div>
                         </div>
                         <div class="avatar-item">
-                          <img src="https://secure.gravatar.com/avatar/cb6cadd343a9f1d6075143a702f5862a78bb0137d5286dde543738e68e812046?s=60" alt="Gayle O'Connell Avatar">
-                          <span>Gayle O'Connell</span>
-                          <p>Et ducimus placeat commodi minus voluptas. Ducimus tempora quos. Et architecto recusandae exercitationem tempora illum. molestiae impedit. Doloremque temporibus nostrum eum ipsam quam necessitatibus et. ut alias sed et est. Et quasi rerum. modi rem perferendis provident fugit</p>
-                        </div>
+                           <img src="https://secure.gravatar.com/avatar/cb6cadd343a9f1d6075143a702f5862a78bb0137d5286dde543738e68e812046?s=60" alt="Gayle O'Connell Avatar">
+                          <div class="avatar-text">
+                          <span class="avatar-name">Gayle O'Connell</span>
+                           <span class="post-date1">July 07, 2023 at 11:44 pm</span>
+                          <p><span class="highlight-orange">Et ducimus placeat commodi minus voluptas. Ducimus tempora quos.</span> Et architecto recusandae exercitationem 
+                            tempora illum. molestiae impedit. Doloremque temporibus nostrum eum ipsam quam necessitatibus <span class="highlight-orange"></span>et. ut alias 
+                            <span class="highlight-orange"> sed et est.</span> Et quasi<span class="highlight-orange"> rerum.</span>  modi rem perferendis provident fugit</p>
+                          <a class="reply-link" href="javascript:void(0)" onclick="toggleReplyForm(this, 'gayle')">Reply</a>
+                          </div>
+                      </div>
                         <div class="avatar-item">
                           <img src="https://secure.gravatar.com/avatar/aa95d4c3495429410f651b45c48e9076b237a9cf19a0e61e34d0d87ee2aec1c7?s=60" alt="Rosamond Rowe Avatar">
-                          <span>Rosamond Rowe</span>
-                          <p>Earum porro dolores accusantium eius sunt. Quasi corrupti suscipit. Vitae odit nihil omnis nisi et</p>
+                           <div class="avatar-text">
+                          <span class="avatar-name">Rosamond Rowe</span>
+                           <span class="post-date1">July 18, 2023 at 12:13 pm</span>
+                          <p> <span class="highlight-orange">Earum porro dolores accusantium eius sunt. Quasi corrupti suscipit.</span>Vitae odit nihil omnis nisi et</p>
+                        <a class="reply-link" href="javascript:void(0)" onclick="toggleReplyForm(this, 'rosamond')">Reply</a>
                         </div>
-                      </div>
+                        </div>
                     </div>
 
-                    <div class="comment-form">
+                    <div class="comment-form1">
                       <h3>Leave a Reply</h3>
                       <form>
                         <div class="form-group">
@@ -747,15 +830,17 @@
                           <textarea id="comment-1" name="comment" rows="8" required placeholder="Share your thoughts..."></textarea>
                         </div>
 
-                        <button type="submit" class="submit-button">Submit Comment</button>
+                        <button type="submit" class="submit-button">Submit</button>
                       </form>
                     </div>
                   </div>
                 </div>
               </article>
-   
+
         </div>     
     </main>
+  
+
 
 
 
@@ -781,19 +866,31 @@
              <h2>Most Recent Posts</h2>
             <ul class="recent-posts">
                 <li>
+
                     <a href="#blog-post-1" class="recent-post-link">
+
+                    <a href="#post-1" class="recent-post-link">
+
                   <img src="images/Post-4.jpg" alt="Recent Post">
                  <span>Startup Lessons: Stories of Success and Failure</span>
                   </a>
                     </li>
                   <li>
+
                  <a href="#blog-post-2" class="recent-post-link">
+
+                 <a href="#post-2" class="recent-post-link">
+
                  <img src="images/Post-6.jpg" alt="Recent Post">
                <span>Building a Strong Startup Team</span>
                 </a>
                    </li>
                 <li>
+
                 <a href="#blog-post-3" class="recent-post-link">
+
+                <a href="#post-3" class="recent-post-link">
+
                 <img src="images/Post-2.jpg" alt="Recent Post">
                    <span>Navigating the Challenges of Startup Growth</span>
               </a>

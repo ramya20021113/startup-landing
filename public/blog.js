@@ -8,7 +8,6 @@ let isSelectOpen = false;
 let currentForm = null;
 let currentCommentId = null;
 
-
 // ================================
 // DOM CONTENT LOADED EVENT
 // ================================
@@ -279,7 +278,8 @@ function toggleReplyForm(element, commentId) {
 
   if (!form) {
     form = createReplyForm(commentId);
-    avatarItem.appendChild(form);
+    const avatarText = avatarItem.querySelector(".avatar-text");
+    avatarText.appendChild(form); // insert inside the text block
   }
 
   form.classList.add("show");
@@ -388,7 +388,6 @@ function searchBlog(searchTerm) {
   });
 }
 
-
 // Close form when clicking outside (optional - currently disabled)
 document.addEventListener("click", function (event) {
   if (
@@ -399,4 +398,3 @@ document.addEventListener("click", function (event) {
     // Don't auto-hide - let user manually close with cancel button
   }
 });
-

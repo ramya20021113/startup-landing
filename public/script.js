@@ -367,4 +367,54 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("email").value = "";
     document.getElementById("message").value = "";
   }
+
+
+ const box1 = document.querySelector(".black-box1");
+ const box2 = document.querySelector(".black-box2");
+
+ document.addEventListener("mousemove", function (e) {
+   const xPercent = (e.clientX / window.innerWidth - 1) * 2;
+   const yPercent = (e.clientY / window.innerHeight - 1) * 2;
+
+   // Small box (moves less)
+   box1.style.transform = `translate(${xPercent * 40}px, ${yPercent * 40}px)`;
+
+   // Big box (moves more)
+   box2.style.transform = `translate(${xPercent * 40}px, ${yPercent * 40}px)`;
+ });
+
+ document.addEventListener("mouseleave", function () {
+   box1.style.transform = "translate(0, 0)";
+   box2.style.transform = "translate(0, 0)";
+ });
+
+
+
+const sidePanel = document.getElementById("sidePanel");
+
+const floatingBtns = document.querySelector(".floating-buttons");
+
+openBtn.addEventListener("click", () => {
+  sidePanel.classList.add("open");
+
+  // Move floating buttons inside the panel
+  sidePanel.appendChild(floatingBtns);
+  floatingBtns.classList.remove("fixed");
+  floatingBtns.classList.add("inside");
+});
+
+closeBtn.addEventListener("click", () => {
+  sidePanel.classList.remove("open");
+
+  // Move floating buttons back outside (end of body)
+  document.body.appendChild(floatingBtns);
+  floatingBtns.classList.remove("inside");
+  floatingBtns.classList.add("fixed");
+});
+
+
+
+
+
+      
 });

@@ -44,6 +44,8 @@ header {
   z-index: 9999;
   padding: 20px;
   font-family: "Kanit", Sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 .panel.open {
@@ -51,11 +53,23 @@ header {
 }
 
 .close {
+  position: absolute;
+  top: 25px;
+  left: 8px;             /* ✅ add this so it aligns to the right */
   font-size: 28px;
   font-weight: bold;
   color: #333;
   cursor: pointer;
-  float: left;
+  width: 40px;
+  height: 40px;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #f8f9fa;
+  transition: color 0.3s, background 0.3s;
+  margin-bottom: 30px;
 }
 
 .header12 h2 {
@@ -357,42 +371,32 @@ section {
 }
 
 /*home section*/
-
-
-.rect-box.small img {
-    position: relative;     /* so child absolute positions are relative here */
-    width: 25px;
-  height: 40px;           /* same height */
-  
-  animation: shake 0.6s infinite;
-  transition: background-color 0.3s ease;
+.black-box1 {
+  position: absolute;   /* relative to .hero-text */
+  top: 0;              /* adjust position above h3 */
+  left: 30%;
+  transform: translateX(-50%) translateY(-60px); /* center + 60px above */
+  width: 30px;
+  height: 30px;
+  background: #000;
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 2; /* ensures it shows above background */
 }
 
-.rect-box.rect-box.large img {
-    position: absolute;     /* so child absolute positions are relative here */
-    width: 50px; 
-  height: 40px;           /* same height */
-  
-  animation: shake 0.6s infinite;
-  transition: background-color 0.3s ease;
+/* Box 2 stays centered below the hero */
+.black-box2 {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background: #000;
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease-out;
 }
-
-
-
-/* Change color on hover */
-.rect-box img:hover {
-  background-color: blue;
-}
-
-/* Shaking animation */
-@keyframes shake {
-  0%   { transform: translateX(0); }
-  25%  { transform: translateX(-10px); }
-  50%  { transform: translateY(-30px); }
-  75%  { transform: translateZ(-10px); }
-  100% { transform: translateX(0); }
-}
-
 
 #home {
   padding: 60px;
@@ -410,28 +414,12 @@ section {
   align-items: center; /* vertically center */
   justify-content: flex-start; /* align left */
   gap: 30px;
+  position: relative;
 }
+ 
 
-.black-box1 {
-  width: 30px;
-  height: 30px;
-  background-color: #000;
-  border-radius: 4px;
-  margin: 40px;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-}
-.black-box2 {
-  width: 50px;
-  height: 50px;
-  background-color: #000;
-  border-radius: 4px;
-  margin: auto;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-}
+
+
 
 .hero {
   display: flex;
@@ -487,6 +475,7 @@ section {
   cursor: pointer;
   margin-top: 20px;
   font-family: "Poppins", Sans-serif;
+  margin-bottom: 120px;
 }
 
 .primary-button:hover {
@@ -565,7 +554,7 @@ section {
 .feature-box123:nth-child(1) {
   transition-delay: 0.3s;
 }
-.feature-box123:nth-child(2) {
+  .feature-box123:nth-child(2) {
   transition-delay: 0.4s;
 }
 .feature-box123:nth-child(3) {
@@ -574,7 +563,7 @@ section {
 
 .features-section {
   padding: 50px;
-  background-color: #ececec;
+  background-color: #f9f9f9;
 }
 
 .features-container {
@@ -1127,7 +1116,7 @@ hr {
 
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   margin-bottom: 40px;
 }
@@ -1691,6 +1680,20 @@ footer {
   z-index: 1000;
 }
 
+.floating-buttons.fixed {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+}
+
+/* Inside panel – absolute relative to panel */
+.floating-buttons.inside {
+  position: absolute;
+  bottom: 80px;
+  right: 28px;
+}
+
+
 .floating-btn {
   width: 40px;
   height: 40px;
@@ -1703,11 +1706,15 @@ footer {
   justify-content: center;
   text-decoration: none;
   
+            transition: all 0.3s;
+            font-size: 20px;
+  
  
 }
 
 .floating-btn:hover {
   background: #ef6c29;
+   transform: translateY(-5px) scale(1.05);
 }
 
 .floating-btn i {

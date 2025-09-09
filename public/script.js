@@ -1,5 +1,6 @@
 // Minimal JavaScript for static startup landing page
 document.addEventListener("DOMContentLoaded", function () {
+  window.handleSubmit = handleSubmit;
   // ==============================
   // Smooth scrolling navigation
   // ==============================
@@ -38,35 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ==============================
-  // Blog filter functionality
+  // book a call send
   // ==============================
-  const filterButtons = document.querySelectorAll(".filter-btn");
-  const blogCards = document.querySelectorAll(".blog-card");
-
-  filterButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      // Remove 'active' from all buttons
-      filterButtons.forEach((btn) => btn.classList.remove("active"));
-      button.classList.add("active");
-
-      // Get filter name
-      const filter = button.textContent.trim().toLowerCase();
-
-      blogCards.forEach((card) => {
-        const categories = card.dataset.category
-          ? card.dataset.category.split(" ")
-          : [];
-
-        if (filter === "all post") {
-          card.style.display = "block";
-        } else if (categories.includes(filter)) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
-    });
-  });
 
   // ==============================
   // Newsletter form submission
@@ -102,39 +76,96 @@ document.addEventListener("DOMContentLoaded", function () {
   // ==============================
   // Load more blog posts
   // ==============================
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const blogCards = document.querySelectorAll(".blog-card");
+  const loadMoreBtn = document.querySelector(".load-more-btn");
+
+  let visibleCount = 3;
+  let activeFilter = "all post";
+  let loadMoreClicked = false;
+
+  function applyFilter(filter) {
+    activeFilter = filter;
+    let matched = 0;
+
+    blogCards.forEach((card) => {
+      const categories = card.dataset.category.split(" ");
+      const matches = filter === "all post" || categories.includes(filter);
+
+      if (matches) {
+        matched++;
+        if (filter === "all post") {
+          // All Post → respect visibleCount
+          card.style.display = matched <= visibleCount ? "block" : "none";
+        } else {
+          // Category filters
+          if (loadMoreClicked) {
+            // After Load More → show all
+            card.style.display = "block";
+          } else {
+            // Before Load More → show only first 3 unhidden
+            card.style.display =
+              matched <= 3 && !card.classList.contains("hidden")
+                ? "block"
+                : "none";
+          }
+        }
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+    // Button visibility logic
+    if (filter === "all post") {
+      const totalMatched = Array.from(blogCards).filter((card) => {
+        const categories = card.dataset.category.split(" ");
+        return categories.includes(filter) || filter === "all post";
+      }).length;
+      loadMoreBtn.style.display =
+        totalMatched > visibleCount ? "block" : "none";
+    } else {
+      if (loadMoreClicked) {
+        loadMoreBtn.style.display = "none"; // hide after load more
+      } else {
+        loadMoreBtn.style.display = "block"; // show before load more
+      }
+    }
+  }
+
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      // Remove 'active' from all buttons
       filterButtons.forEach((btn) => btn.classList.remove("active"));
       button.classList.add("active");
 
       const filter = button.textContent.trim().toLowerCase();
-
-      blogCards.forEach((card, index) => {
-        const categories = card.dataset.category.split(" ");
-
-        if (filter === "all post") {
-          // Show everything
-          card.style.display = "block";
-          card.classList.remove("hidden"); // 👈 remove hidden so all show
-        } else if (categories.includes(filter)) {
-          card.style.display = "block";
-          card.classList.remove("hidden"); // 👈 remove hidden for filtered ones
-        } else {
-          card.style.display = "none";
-        }
-      });
-
-      // Reset Load More when switching filters
-      if (filter === "all post") {
-        loadMoreBtn.style.display = "none"; // All posts visible, no need load more
-      } else {
-        loadMoreBtn.style.display = "block"; // Filters can still use load more
-      }
+      applyFilter(filter);
     });
   });
 
+  loadMoreBtn.addEventListener("click", () => {
+    visibleCount += 3;
+    loadMoreClicked = true;
 
+    blogCards.forEach((card, index) => {
+      const categories = card.dataset.category.split(" ");
+      if (activeFilter === "all post" || categories.includes(activeFilter)) {
+        card.style.display = "block";
+        card.classList.remove("hidden");
+      }
+    });
+
+    // Hide button if no hidden posts remain
+    if (activeFilter === "all post") {
+      if (visibleCount >= blogCards.length) {
+        loadMoreBtn.style.display = "none";
+      }
+    } else {
+      loadMoreBtn.style.display = "none";
+    }
+  });
+
+  // Initial load
+  applyFilter("all post");
 
   // ==============================
   // Testimonial slider
@@ -170,22 +201,44 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     slides[0].classList.add("active");
-    setInterval(autoSlide, 5000);
+    dots[0].classList.add("active");
   }
 
   // ==============================
   // Scroll-to-top button
   // ==============================
   const scrollTopBtn = document.querySelector(".scroll-top-btn");
-  if (scrollTopBtn) {
+  const featuresSection = document.querySelector("#features");
+  const footer = document.querySelector("footer");
+
+  let lastScrollY = 0; // track scroll direction
+
+  if (scrollTopBtn && featuresSection && footer) {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 200) {
-        scrollTopBtn.style.display = "flex";
+      const featureTop = featuresSection.offsetTop;
+      const footerTop = footer.offsetTop;
+      const currentY = window.scrollY;
+
+      if (currentY > lastScrollY) {
+        // ✅ Scrolling DOWN
+        if (currentY + window.innerHeight >= footerTop) {
+          scrollTopBtn.style.display = "flex"; // show only at footer
+        } else {
+          scrollTopBtn.style.display = "none"; // hidden before footer
+        }
       } else {
-        scrollTopBtn.style.display = "none";
+        // ✅ Scrolling UP
+        if (currentY >= featureTop) {
+          scrollTopBtn.style.display = "flex"; // keep showing until features top
+        } else {
+          scrollTopBtn.style.display = "none"; // hide above features
+        }
       }
+
+      lastScrollY = currentY; // update last scroll position
     });
 
+    // Smooth scroll to top
     scrollTopBtn.addEventListener("click", (e) => {
       e.preventDefault();
       window.scrollTo({
@@ -261,6 +314,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // ==============================
   // Custom select + panel toggle
   // ==============================
+  let selectedSubject = "";
+
   function toggleSelect() {
     const selectItems = document.querySelector(".custom-select .select-items");
     selectItems.classList.toggle("select-hide");
@@ -273,7 +328,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const subjectText = document.getElementById("subjectText");
 
     selectSelected.textContent = subject;
-    subjectText.textContent = subject;
+    if (subjectText) subjectText.textContent = subject;
+
+    // ✅ set selected subject correctly
+    selectedSubject = subject;
 
     const selectItems = document.querySelector(".custom-select .select-items");
     selectItems.classList.add("select-hide");
@@ -296,6 +354,12 @@ document.addEventListener("DOMContentLoaded", function () {
   if (openBtn && closeBtn && panel) {
     openBtn.onclick = () => panel.classList.add("open");
     closeBtn.onclick = () => panel.classList.remove("open");
+  }
+
+  // ✅ add this missing function
+  function closePanel() {
+    const panel = document.getElementById("sidePanel");
+    if (panel) panel.classList.remove("open");
   }
 
   const customSelect = document.getElementById("subjectSelect");
@@ -321,7 +385,11 @@ document.addEventListener("DOMContentLoaded", function () {
       option.addEventListener("click", function (event) {
         event.stopPropagation();
         selectSelected.textContent = this.textContent;
-        selectSelected.style.color = "#333";
+        selectSelected.style.color = "#ccc";
+
+        // ✅ set selectedSubject here too
+        selectedSubject = this.textContent;
+
         selectItems.classList.add("select-hide");
         selectSelected.classList.remove("select-arrow-active");
         isSelectOpen = false;
@@ -330,91 +398,94 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function handleSubmit() {
-    const selectSelected = document.querySelector(
-      ".custom-select .select-selected"
-    );
-    const selectedText = selectSelected.textContent;
-    const emailText = document.getElementById("email").value;
-    const messageText = document.getElementById("message").value;
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const formMessage = document.getElementById("form-message");
 
-    if (selectedText === "Select a subject") {
-      alert("Please select a subject before sending.");
+    // Reset message
+    formMessage.textContent = "";
+    formMessage.className = "";
+    formMessage.style.display = "none";
+
+    if (!selectedSubject) {
+      formMessage.textContent = "Please choose a subject.";
+      formMessage.className = "error";
+      formMessage.style.display = "block";
       return;
     }
 
-    if (!emailText.trim()) {
-      alert("Please enter your email address.");
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      formMessage.textContent = "Please enter a valid email address.";
+      formMessage.className = "error";
+      formMessage.style.display = "block";
       return;
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(emailText)) {
-      alert("Please enter a valid email address.");
+    if (!message) {
+      formMessage.textContent = "Please enter a message.";
+      formMessage.className = "error";
+      formMessage.style.display = "block";
       return;
     }
 
-    if (!messageText.trim()) {
-      alert("Please enter a message before sending.");
-      return;
-    }
+    // ✅ Success
+    formMessage.textContent = "Submission successful! We'll contact you soon.";
+    formMessage.className = "success";
+    formMessage.style.display = "block";
 
-    alert(
-      `Thank you! Your message about "${selectedText}" has been sent from ${emailText}. We'll get back to you soon!`
-    );
-
-    selectSelected.textContent = "Select a subject";
-    selectSelected.style.color = "#666";
+    // Reset form
+    document.querySelector("#subjectSelect .select-selected").textContent =
+      "Select a subject";
+    document
+      .querySelector("#subjectSelect .select-selected")
+      .classList.remove("select-arrow-active");
     document.getElementById("email").value = "";
     document.getElementById("message").value = "";
+    selectedSubject = "";
+
+    // ✅ Close the panel after 2 seconds
+    setTimeout(closePanel, 2000);
   }
 
+  //box animation
+  const box1 = document.querySelector(".black-box1");
+  const box2 = document.querySelector(".black-box2");
 
- const box1 = document.querySelector(".black-box1");
- const box2 = document.querySelector(".black-box2");
+  document.addEventListener("mousemove", function (e) {
+    const xPercent = (e.clientX / window.innerWidth - 1) * 2;
+    const yPercent = (e.clientY / window.innerHeight - 1) * 2;
 
- document.addEventListener("mousemove", function (e) {
-   const xPercent = (e.clientX / window.innerWidth - 1) * 2;
-   const yPercent = (e.clientY / window.innerHeight - 1) * 2;
+    // Small box (moves less)
+    box1.style.transform = `translate(${xPercent * 20}px, ${yPercent * 20}px)`;
 
-   // Small box (moves less)
-   box1.style.transform = `translate(${xPercent * 40}px, ${yPercent * 40}px)`;
+    // Big box (moves more)
+    box2.style.transform = `translate(${xPercent * 20}px, ${yPercent * 20}px)`;
+  });
 
-   // Big box (moves more)
-   box2.style.transform = `translate(${xPercent * 40}px, ${yPercent * 40}px)`;
- });
+  document.addEventListener("mouseleave", function () {
+    box1.style.transform = "translate(0, 0)";
+    box2.style.transform = "translate(0, 0)";
+  });
 
- document.addEventListener("mouseleave", function () {
-   box1.style.transform = "translate(0, 0)";
-   box2.style.transform = "translate(0, 0)";
- });
+  const sidePanel = document.getElementById("sidePanel");
 
+  const floatingBtns = document.querySelector(".floating-buttons");
 
+  openBtn.addEventListener("click", () => {
+    sidePanel.classList.add("open");
 
-const sidePanel = document.getElementById("sidePanel");
+    // Move floating buttons inside the panel
+    sidePanel.appendChild(floatingBtns);
+    floatingBtns.classList.remove("fixed");
+    floatingBtns.classList.add("inside");
+  });
 
-const floatingBtns = document.querySelector(".floating-buttons");
+  closeBtn.addEventListener("click", () => {
+    sidePanel.classList.remove("open");
 
-openBtn.addEventListener("click", () => {
-  sidePanel.classList.add("open");
-
-  // Move floating buttons inside the panel
-  sidePanel.appendChild(floatingBtns);
-  floatingBtns.classList.remove("fixed");
-  floatingBtns.classList.add("inside");
-});
-
-closeBtn.addEventListener("click", () => {
-  sidePanel.classList.remove("open");
-
-  // Move floating buttons back outside (end of body)
-  document.body.appendChild(floatingBtns);
-  floatingBtns.classList.remove("inside");
-  floatingBtns.classList.add("fixed");
-});
-
-
-
-
-
-      
+    // Move floating buttons back outside (end of body)
+    document.body.appendChild(floatingBtns);
+    floatingBtns.classList.remove("inside");
+    floatingBtns.classList.add("fixed");
+  });
 });

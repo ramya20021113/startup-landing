@@ -41,17 +41,22 @@
   position: fixed;
   right: -400px;
   top: 0;
-  height: 100%;
-  width: 350px;
+  height: 100vh;           /* use full viewport height */
+  width: 300px;
   background-color: #fff;
-  box-shadow: -2px 0 5px rgba(0,0,0,0.2);
-  overflow-y: auto;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+       /* allow scrolling */
+  overflow: hidden;      /* prevent sideways scroll */
   transition: right 0.3s ease-in-out;
   z-index: 9999;
   padding: 20px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Kanit", sans-serif;
+  display: flex;
+  flex-direction: column;
 }
-
+body.no-scroll {
+  overflow: hidden; /* disables background scroll when panel is open */
+}
 .panel.open {
   right: 0;
 }

@@ -352,14 +352,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const panel = document.getElementById("sidePanel");
 
   if (openBtn && closeBtn && panel) {
-    openBtn.onclick = () => panel.classList.add("open");
-    closeBtn.onclick = () => panel.classList.remove("open");
+    openBtn.onclick = () => {
+      panel.classList.add("open");
+      document.body.classList.add("no-scroll"); // 🚀 freeze body scroll
+    };
+    closeBtn.onclick = closePanel;
   }
 
   // ✅ add this missing function
   function closePanel() {
     const panel = document.getElementById("sidePanel");
     if (panel) panel.classList.remove("open");
+    document.body.classList.remove("no-scroll"); 
   }
 
   const customSelect = document.getElementById("subjectSelect");

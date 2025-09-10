@@ -35,18 +35,23 @@ header {
   position: fixed;
   right: -400px;
   top: 0;
-  height: 100%;
+  height: 100vh;           /* use full viewport height */
   width: 300px;
   background-color: #fff;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-  overflow-y: auto;
+       /* allow scrolling */
+  overflow: hidden;      /* prevent sideways scroll */
   transition: right 0.3s ease-in-out;
   z-index: 9999;
   padding: 20px;
-  font-family: "Kanit", Sans-serif;
+  font-family: "Kanit", sans-serif;
   display: flex;
   flex-direction: column;
 }
+body.no-scroll {
+  overflow: hidden; /* disables background scroll when panel is open */
+}
+
 
 .panel.open {
   right: 0;
@@ -994,11 +999,11 @@ hr {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 40px;
   margin: 40px 0;
   margin-bottom: 100px;
-  margin-top: -50px;
+  margin-top: -40px;
 }
 
 .service-card1 {
@@ -1007,8 +1012,9 @@ hr {
   border-radius: 15px;
   text-align: left;
   background-color: white;
+  margin-bottom: 11px;
 
-  border-radius: 15px solid black;
+  border-radius: 15px ;
   color: #6b7280;
   font-size: 1rem;
   font-family: "Poppins", Sans-serif;
@@ -1029,6 +1035,7 @@ hr {
   border-radius: 15px;
   text-align: left;
   box-shadow: black;
+  margin-bottom: 11px;
 }
 
 .service-card3 h3 {

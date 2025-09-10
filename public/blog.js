@@ -3,7 +3,7 @@
 // ================================
 
 // Global variables
-let isSelectOpen = false;
+
 
 let currentForm = null;
 let currentCommentId = null;
@@ -84,25 +84,72 @@ document.addEventListener("DOMContentLoaded", function () {
 // ================================
 // PANEL FUNCTIONALITY
 // ================================
+
+
+// ================================
+// DROPDOWN FUNCTIONALITY
+// ================================
+
+// ================================
+// FORM SUBMISSION HANDLER
+// ================================
+let selectedSubject = "";
+
+function toggleSelect() {
+  const selectItems = document.querySelector(".custom-select .select-items");
+  selectItems.classList.toggle("select-hide");
+}
+
+function selectOption(subject) {
+  const selectSelected = document.querySelector(
+    ".custom-select .select-selected"
+  );
+  const subjectText = document.getElementById("subjectText");
+
+  selectSelected.textContent = subject;
+  if (subjectText) subjectText.textContent = subject;
+
+  // ✅ set selected subject correctly
+  selectedSubject = subject;
+
+  const selectItems = document.querySelector(".custom-select .select-items");
+  selectItems.classList.add("select-hide");
+}
+
+document.addEventListener("click", (event) => {
+  const customSelect = document.querySelector(".custom-select");
+  if (customSelect && !customSelect.contains(event.target)) {
+    const selectItems = customSelect.querySelector(".select-items");
+    if (selectItems) selectItems.classList.add("select-hide");
+  }
+});
+
+let isSelectOpen = false;
+
 const openBtn = document.getElementById("openPanel");
 const closeBtn = document.getElementById("closePanel");
 const panel = document.getElementById("sidePanel");
 
 if (openBtn && closeBtn && panel) {
-  openBtn.onclick = () => panel.classList.add("open");
-  closeBtn.onclick = () => panel.classList.remove("open");
+  openBtn.onclick = () => {
+    panel.classList.add("open");
+    document.body.classList.add("no-scroll"); // 🚀 freeze body scroll
+  };
+  closeBtn.onclick = closePanel;
 }
 
-// ================================
-// DROPDOWN FUNCTIONALITY
-// ================================
-const customSelect = document.getElementById("subjectSelect");
+// ✅ add this missing function
+function closePanel() {
+  const panel = document.getElementById("sidePanel");
+  if (panel) panel.classList.remove("open");
+  document.body.classList.remove("no-scroll");
+}
 
+const customSelect = document.getElementById("subjectSelect");
 if (customSelect) {
   const selectItems = customSelect.querySelector(".select-items");
   const selectSelected = customSelect.querySelector(".select-selected");
 
-  // Dropdown toggle
   customSelect.addEventListener("click", function (event) {
     event.stopPropagation();
     isSelectOpen = !isSelectOpen;
@@ -116,82 +163,71 @@ if (customSelect) {
     }
   });
 
-  // Option selection
   const options = customSelect.querySelectorAll(".select-option");
   options.forEach((option) => {
     option.addEventListener("click", function (event) {
       event.stopPropagation();
       selectSelected.textContent = this.textContent;
-      selectSelected.style.color = "#333";
+      selectSelected.style.color = "#ccc";
+
+      // ✅ set selectedSubject here too
+      selectedSubject = this.textContent;
+
       selectItems.classList.add("select-hide");
       selectSelected.classList.remove("select-arrow-active");
       isSelectOpen = false;
     });
   });
-
-  // Close dropdown when clicking outside
-  document.addEventListener("click", function (event) {
-    if (!customSelect.contains(event.target)) {
-      selectItems.classList.add("select-hide");
-      selectSelected.classList.remove("select-arrow-active");
-      isSelectOpen = false;
-    }
-  });
 }
 
-// ================================
-// FORM SUBMISSION HANDLER
-// ================================
 function handleSubmit() {
-  const customSelect = document.getElementById("subjectSelect");
-  const selectSelected = customSelect?.querySelector(".select-selected");
-  const selectedText = selectSelected?.textContent || "";
-  const emailText = document.getElementById("email")?.value || "";
-  const messageText = document.getElementById("message")?.value || "";
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+  const formMessage = document.getElementById("form-message");
 
-  // Validation
-  if (selectedText === "Select a subject" || !selectedText) {
-    alert("Please select a subject before sending.");
+  // Reset message
+  formMessage.textContent = "";
+  formMessage.className = "";
+  formMessage.style.display = "none";
+
+  if (!selectedSubject) {
+    formMessage.textContent = "Please choose a subject.";
+    formMessage.className = "error";
+    formMessage.style.display = "block";
     return;
   }
 
-  if (!emailText.trim()) {
-    alert("Please enter your email address.");
+  if (!email || !/\S+@\S+\.\S+/.test(email)) {
+    formMessage.textContent = "Please enter a valid email address.";
+    formMessage.className = "error";
+    formMessage.style.display = "block";
     return;
   }
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(emailText)) {
-    alert("Please enter a valid email address.");
+  if (!message) {
+    formMessage.textContent = "Please enter a message.";
+    formMessage.className = "error";
+    formMessage.style.display = "block";
     return;
   }
 
-  if (!messageText.trim()) {
-    alert("Please enter a message before sending.");
-    return;
-  }
-
-  // Success message
-  alert(
-    `Thank you! Your message about "${selectedText}" has been sent from ${emailText}. We'll get back to you soon!`
-  );
+  // ✅ Success
+  formMessage.textContent = "Submission successful! We'll contact you soon.";
+  formMessage.className = "success";
+  formMessage.style.display = "block";
 
   // Reset form
-  if (selectSelected) {
-    selectSelected.textContent = "Select a subject";
-    selectSelected.style.color = "#d7d4d4ff";
-  }
+  document.querySelector("#subjectSelect .select-selected").textContent =
+    "Select a subject";
+  document
+    .querySelector("#subjectSelect .select-selected")
+    .classList.remove("select-arrow-active");
+  document.getElementById("email").value = "";
+  document.getElementById("message").value = "";
+  selectedSubject = "";
 
-  const emailField = document.getElementById("email");
-  const messageField = document.getElementById("message");
-
-  if (emailField) emailField.value = "";
-  if (messageField) messageField.value = "";
-
-  // Close panel after successful submission
-  if (panel) {
-    panel.classList.remove("open");
-  }
+  // ✅ Close the panel after 2 seconds
+  setTimeout(closePanel, 2000);
 }
 
 // ================================

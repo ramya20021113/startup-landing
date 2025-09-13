@@ -307,14 +307,14 @@
           </ul>
           </div>
             
-            <div class="sidebar-widget promo-box">
-                <div class="promo-content">
-                    <h3>Explore Our Startup</h3>
-                    <p>Lorem Ipsum is simply dumy text of the printing typesetting industry lorem.</p>
-                    <a href="#" class="promo-button">Download Now</a>
-                </div>
-            </div>
-            
+              <div class="sidebar-widget promo-box">
+                  <div class="promo-content">
+                      <h3>Explore Our Startup</h3>
+                      <p>Lorem Ipsum is simply dumy text of the printing typesetting industry lorem.</p>
+                      <a href="#" class="promo-button">Download Now</a>
+                  </div>
+              </div>
+              
             <div class="sidebar-widget">
                 <h2>Category</h2>
                 <ul class="category-list grid-boxes">
@@ -1214,20 +1214,53 @@ body.no-scroll {
         
 
         
-        .promo-box {
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            background-image: url(images/Post-5.jpg);
-            background-repeat: no-repeat;
-            background-position: center center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-            width: 280px;
-            height: 500px;
-            text-align: center;
-            color: white;
-        }
+   .promo-box {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-image: url(images/Post-5.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 280px 500px; /* Fixed size */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    width: 280px;
+    height: 500px;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    position: relative;
+    border-radius: 8px;
+}
 
+.promo-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(228, 222, 222, 0.3); /* Water black shadow overlay */
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+
+.promo-box:hover {
+    background-size: 308px 550px; /* 10% zoom but fixed dimensions */
+}
+
+.promo-box:hover::before {
+    background: rgba(156, 153, 153, 0.5); /* Darker shadow on hover */
+}
+
+.promo-content {
+    padding: 30px 20px;
+    background: linear-gradient(to top, rgba(80, 78, 78, 0.7), transparent);
+    width: 100%;
+    position: relative;
+    z-index: 2; /* Above the shadow overlay */
+} 
         .promo-box h3 {
             color: white;
             
@@ -1720,244 +1753,246 @@ footer {
 
 </style>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-let selectedSubject = "";
+document.addEventListener("DOMContentLoaded", function () {
+  // =====================================================
+  // GLOBAL STATE
+  // =====================================================
+  let selectedSubject = "";
+  let isSelectOpen = false;
+  let currentForm = null;
+  let currentCommentId = null;
 
-function toggleSelect() {
-  const selectItems = document.querySelector(".custom-select .select-items");
-  selectItems.classList.toggle("select-hide");
-}
+  // =====================================================
+  // CUSTOM SELECT DROPDOWN
+  // =====================================================
+  const customSelect = document.getElementById("subjectSelect");
 
-function selectOption(subject) {
-  const selectSelected = document.querySelector(
-    ".custom-select .select-selected"
-  );
-  const subjectText = document.getElementById("subjectText");
-
-  selectSelected.textContent = subject;
-  if (subjectText) subjectText.textContent = subject;
-
-  // ✅ set selected subject correctly
-  selectedSubject = subject;
-
-  const selectItems = document.querySelector(".custom-select .select-items");
-  selectItems.classList.add("select-hide");
-}
-
-document.addEventListener("click", (event) => {
-  const customSelect = document.querySelector(".custom-select");
-  if (customSelect && !customSelect.contains(event.target)) {
+  if (customSelect) {
     const selectItems = customSelect.querySelector(".select-items");
-    if (selectItems) selectItems.classList.add("select-hide");
-  }
-});
+    const selectSelected = customSelect.querySelector(".select-selected");
 
-let isSelectOpen = false;
-
-const openBtn = document.getElementById("openPanel");
-const closeBtn = document.getElementById("closePanel");
-const panel = document.getElementById("sidePanel");
-
-if (openBtn && closeBtn && panel) {
-  openBtn.onclick = () => {
-    panel.classList.add("open");
-    document.body.classList.add("no-scroll"); // 🚀 freeze body scroll
-  };
-  closeBtn.onclick = closePanel;
-}
-
-// ✅ add this missing function
-function closePanel() {
-  const panel = document.getElementById("sidePanel");
-  if (panel) panel.classList.remove("open");
-  document.body.classList.remove("no-scroll");
-}
-
-const customSelect = document.getElementById("subjectSelect");
-if (customSelect) {
-  const selectItems = customSelect.querySelector(".select-items");
-  const selectSelected = customSelect.querySelector(".select-selected");
-
-  customSelect.addEventListener("click", function (event) {
-    event.stopPropagation();
-    isSelectOpen = !isSelectOpen;
-
-    if (isSelectOpen) {
-      selectItems.classList.remove("select-hide");
-      selectSelected.classList.add("select-arrow-active");
-    } else {
-      selectItems.classList.add("select-hide");
-      selectSelected.classList.remove("select-arrow-active");
-    }
-  });
-
-  const options = customSelect.querySelectorAll(".select-option");
-  options.forEach((option) => {
-    option.addEventListener("click", function (event) {
+    customSelect.addEventListener("click", function (event) {
       event.stopPropagation();
-      selectSelected.textContent = this.textContent;
-      selectSelected.style.color = "#ccc";
+      isSelectOpen = !isSelectOpen;
 
-      // ✅ set selectedSubject here too
-      selectedSubject = this.textContent;
-
-      selectItems.classList.add("select-hide");
-      selectSelected.classList.remove("select-arrow-active");
-      isSelectOpen = false;
+      if (isSelectOpen) {
+        selectItems.classList.remove("select-hide");
+        selectSelected.classList.add("select-arrow-active");
+      } else {
+        selectItems.classList.add("select-hide");
+        selectSelected.classList.remove("select-arrow-active");
+      }
     });
-  });
-}
 
-function handleSubmit() {
-  const email = document.getElementById("email").value.trim();
-  const message = document.getElementById("message").value.trim();
-  const formMessage = document.getElementById("form-message");
+    const options = customSelect.querySelectorAll(".select-option");
+    options.forEach((option) => {
+      option.addEventListener("click", function (event) {
+        event.stopPropagation();
+        selectSelected.textContent = this.textContent;
+        selectSelected.style.color = "#ccc";
+        selectedSubject = this.textContent;
 
-  // Reset message
-  formMessage.textContent = "";
-  formMessage.className = "";
-  formMessage.style.display = "none";
+        selectItems.classList.add("select-hide");
+        selectSelected.classList.remove("select-arrow-active");
+        isSelectOpen = false;
+      });
+    });
 
-  if (!selectedSubject) {
-    formMessage.textContent = "Please choose a subject.";
-    formMessage.className = "error";
-    formMessage.style.display = "block";
-    return;
+    // Close dropdown when clicking outside
+    document.addEventListener("click", (event) => {
+      if (customSelect && !customSelect.contains(event.target)) {
+        selectItems.classList.add("select-hide");
+        selectSelected.classList.remove("select-arrow-active");
+        isSelectOpen = false;
+      }
+    });
   }
 
-  if (!email || !/\S+@\S+\.\S+/.test(email)) {
-    formMessage.textContent = "Please enter a valid email address.";
-    formMessage.className = "error";
-    formMessage.style.display = "block";
-    return;
+  // =====================================================
+  // SIDE PANEL OPEN / CLOSE
+  // =====================================================
+  const openBtn = document.getElementById("openPanel");
+  const closeBtn = document.getElementById("closePanel");
+  const panel = document.getElementById("sidePanel");
+
+  if (openBtn && closeBtn && panel) {
+    openBtn.onclick = () => {
+      panel.classList.add("open");
+      document.body.classList.add("no-scroll");
+    };
+
+    closeBtn.onclick = closePanel;
   }
 
-  if (!message) {
-    formMessage.textContent = "Please enter a message.";
-    formMessage.className = "error";
-    formMessage.style.display = "block";
-    return;
+  function closePanel() {
+    if (panel) panel.classList.remove("open");
+    document.body.classList.remove("no-scroll");
   }
 
-  // ✅ Success
-  formMessage.textContent = "Submission successful! We'll contact you soon.";
-  formMessage.className = "success";
-  formMessage.style.display = "block";
+  // =====================================================
+  // CONTACT FORM SUBMIT HANDLER
+  // =====================================================
+  window.handleSubmit = function () {
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const formMessage = document.getElementById("form-message");
 
-  // Reset form
-  document.querySelector("#subjectSelect .select-selected").textContent =
-    "Select a subject";
-  document
-    .querySelector("#subjectSelect .select-selected")
-    .classList.remove("select-arrow-active");
-  document.getElementById("email").value = "";
-  document.getElementById("message").value = "";
-  selectedSubject = "";
+    formMessage.textContent = "";
+    formMessage.className = "";
+    formMessage.style.display = "none";
 
-  // ✅ Close the panel after 2 seconds
-  setTimeout(closePanel, 2000);
-}
-});
-
-function toggleReplyForm(element, commentId) {
-  const avatarItem = element.closest(".avatar-item");
-
-  // If clicking the same reply link, toggle the form
-  if (currentCommentId === commentId && currentForm) {
-    if (currentForm.classList.contains("show")) {
-      hideCurrentForm();
+    if (!selectedSubject) {
+      formMessage.textContent = "Please choose a subject.";
+      formMessage.className = "error";
+      formMessage.style.display = "block";
       return;
-    } else {
-      currentForm.classList.add("show");
+    }
+
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      formMessage.textContent = "Please enter a valid email address.";
+      formMessage.className = "error";
+      formMessage.style.display = "block";
       return;
+    }
+
+    if (!message) {
+      formMessage.textContent = "Please enter a message.";
+      formMessage.className = "error";
+      formMessage.style.display = "block";
+      return;
+    }
+
+    // ✅ Success
+    formMessage.textContent = "Submission successful! We'll contact you soon.";
+    formMessage.className = "success";
+    formMessage.style.display = "block";
+
+    // Reset form
+    document.querySelector("#subjectSelect .select-selected").textContent =
+      "Select a subject";
+    document
+      .querySelector("#subjectSelect .select-selected")
+      .classList.remove("select-arrow-active");
+    document.getElementById("email").value = "";
+    document.getElementById("message").value = "";
+    selectedSubject = "";
+
+    // ✅ Close panel after 2s
+    setTimeout(closePanel, 2000);
+  };
+
+  // =====================================================
+  // COMMENT REPLY FORMS
+  // =====================================================
+  window.toggleReplyForm = function (element, commentId) {
+    const avatarItem = element.closest(".avatar-item");
+
+    if (currentCommentId === commentId && currentForm) {
+      if (currentForm.classList.contains("show")) {
+        hideCurrentForm();
+        return;
+      } else {
+        currentForm.classList.add("show");
+        return;
+      }
+    }
+
+    hideCurrentForm();
+
+    let form = avatarItem.querySelector(".comment-form");
+    if (!form) {
+      form = createReplyForm(commentId);
+      const avatarText = avatarItem.querySelector(".avatar-text");
+      avatarText.appendChild(form);
+    }
+
+    form.classList.add("show");
+    currentForm = form;
+    currentCommentId = commentId;
+
+    setTimeout(() => {
+      form.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }, 100);
+  };
+
+  function hideCurrentForm() {
+    if (currentForm) {
+      currentForm.classList.remove("show");
+      currentForm = null;
+      currentCommentId = null;
     }
   }
 
-  // Hide any existing form
-  hideCurrentForm();
-
-  // Create or show form for this comment
-  let form = avatarItem.querySelector(".comment-form");
-
-  if (!form) {
-    form = createReplyForm(commentId);
-    const avatarText = avatarItem.querySelector(".avatar-text");
-    avatarText.appendChild(form); // insert inside the text block
-  }
-
-  form.classList.add("show");
-  currentForm = form;
-  currentCommentId = commentId;
-
-  // Smooth scroll to form
-  setTimeout(() => {
-    form.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  }, 100);
-}
-
-function hideCurrentForm() {
-  if (currentForm) {
-    currentForm.classList.remove("show");
-    currentForm = null;
-    currentCommentId = null;
-  }
-}
-
-function createReplyForm(commentId) {
-  const formHTML = `
+  function createReplyForm(commentId) {
+    const formHTML = `
       <div class="comment-form">
-          <h3>Leave a Reply</h3>
-          <form onsubmit="handleCommentSubmit(event, '${commentId}')">
-              <div class="form-group">
-                  <label for="author-${commentId}">Name <span>*</span></label>
-                  <input type="text" id="author-${commentId}" name="author" required placeholder="Your name">
-              </div>
-
-              <div class="form-group">
-                  <label for="email-${commentId}">Email <span>*</span></label>
-                  <input type="email" id="email-${commentId}" name="email" required placeholder="your.email@example.com">
-              </div>
-
-              <div class="form-group">
-                  <label for="url-${commentId}">Website</label>
-                  <input type="url" id="url-${commentId}" name="url" placeholder="https://yourwebsite.com (optional)">
-              </div>
-              
-              <div class="form-group">
-                  <label for="comment-${commentId}">Message <span>*</span></label>
-                  <textarea id="comment-${commentId}" name="comment" rows="8" required placeholder="Share your thoughts..."></textarea>
-              </div>
-
-              <button type="submit" class="submit-button">Submit</button>
-              
-          </form>
+        <h3>Leave a Reply</h3>
+        <form onsubmit="handleCommentSubmit(event, '${commentId}')">
+          <div class="form-group">
+            <label for="author-${commentId}">Name <span>*</span></label>
+            <input type="text" id="author-${commentId}" name="author" >
+          </div>
+          <div class="form-group">
+            <label for="email-${commentId}">Email <span>*</span></label>
+            <input type="email" id="email-${commentId}" name="email" >
+          </div>
+          <div class="form-group">
+            <label for="url-${commentId}">Website</label>
+            <input type="url" id="url-${commentId}" name="url">
+          </div>
+          <div class="form-group">
+            <label for="comment-${commentId}">Message <span>*</span></label>
+            <textarea id="comment-${commentId}" name="comment" rows="8" ></textarea>
+          </div>
+          <button type="submit" class="submit-button">Submit</button>
+        </form>
       </div>
-  `;
+    `;
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = formHTML;
+    return tempDiv.firstElementChild;
+  }
 
-  const tempDiv = document.createElement("div");
-  tempDiv.innerHTML = formHTML;
-  return tempDiv.firstElementChild;
-}
+  window.handleCommentSubmit = function (event, commentId) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
 
-function handleCommentSubmit(event, commentId) {
-  event.preventDefault();
+    console.log("Comment submitted for:", commentId);
+    console.log("Form data:", Object.fromEntries(formData));
 
-  // Get form data
-  const form = event.target;
-  const formData = new FormData(form);
+    alert("Thank you for your comment! It has been submitted for review.");
 
-  // Here you would normally send the data to your server
-  console.log("Comment submitted for:", commentId);
-  console.log("Form data:", Object.fromEntries(formData));
+    form.reset();
+    hideCurrentForm();
+  };
 
-  // Show success message (you can customize this)
-  alert("Thank you for your comment! It has been submitted for review.");
+  // =====================================================
+  // UTILITY FUNCTIONS
+  // =====================================================
+  window.toggleMobileMenu = function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mainNav = document.querySelector(".main-nav");
+    if (menuToggle && mainNav) {
+      mainNav.classList.toggle("active");
+    }
+  };
 
-  // Reset form and hide it
-  form.reset();
-  hideCurrentForm();
-}
+  window.searchBlog = function (searchTerm) {
+    const blogPosts = document.querySelectorAll(".blog-post");
+    const term = searchTerm.toLowerCase();
 
+    blogPosts.forEach((post) => {
+      const title = post.querySelector("h2, h3")?.textContent.toLowerCase() || "";
+      const content =
+        post.querySelector(".blog-excerpt, p")?.textContent.toLowerCase() || "";
 
-
+      if (title.includes(term) || content.includes(term)) {
+        post.style.display = "block";
+      } else {
+        post.style.display = "none";
+      }
+    });
+  };
+});
 </script>

@@ -442,6 +442,9 @@ section {
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   z-index: 2; /* ensures it shows above background */
 }
+.black-box1:active {
+  background:darkblue;
+}
 
 /* Box 2 stays centered below the hero */
 .black-box2 {
@@ -455,6 +458,9 @@ section {
   border-radius: 6px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   transition: transform 0.3s ease-out;
+}
+.black-box2:active {
+  background: darkblue;
 }
 
 #home {

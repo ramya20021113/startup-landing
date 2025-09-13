@@ -234,57 +234,35 @@ function handleSubmit() {
 // BLOG READ MORE FUNCTIONALITY
 // ================================
 function toggleReadMore(postId) {
-  // Get all posts and their elements
   const allPosts = document.querySelectorAll(".blog-post");
   const allMoreContents = document.querySelectorAll(".moreContent");
   const allButtons = document.querySelectorAll(".readMoreBtn");
 
-  // Get the current post elements
   const currentPost = document.getElementById(`post-${postId}`);
   const currentMoreContent = document.getElementById(`moreContent-${postId}`);
   const currentButton = currentPost?.querySelector(".readMoreBtn");
 
-  if (!currentPost || !currentMoreContent || !currentButton) {
-    console.error(`Post elements not found for postId: ${postId}`);
-    return;
-  }
+  if (!currentPost || !currentMoreContent || !currentButton) return;
 
-  // Check if the current post is already expanded
   const isExpanded = currentMoreContent.style.display === "block";
 
   if (isExpanded) {
     // Collapse current post and show all posts
-    allMoreContents.forEach((content) => {
-      content.style.display = "none";
-    });
-
-    allPosts.forEach((post) => {
-      post.style.display = "block";
-    });
-
-    allButtons.forEach((button) => {
-      button.textContent = "Read More";
-    });
+    allMoreContents.forEach((content) => (content.style.display = "none"));
+    allPosts.forEach((post) => (post.style.display = "block"));
+    allButtons.forEach((button) => (button.style.display = "inline-flex")); // show buttons back
   } else {
     // Expand current post and hide others
-    allMoreContents.forEach((content) => {
-      content.style.display = "none";
-    });
-
+    allMoreContents.forEach((content) => (content.style.display = "none"));
     allPosts.forEach((post) => {
-      if (post.id !== `post-${postId}`) {
-        post.style.display = "none";
-      }
+      if (post.id !== `post-${postId}`) post.style.display = "none";
     });
 
-    // Show the current post's more content
+    // Show the current post’s more content
     currentMoreContent.style.display = "block";
 
-    // Update button text
-    allButtons.forEach((button) => {
-      button.textContent = "Read More";
-    });
-    currentButton.textContent = "Read Less";
+    // ✅ Hide the button completely
+    currentButton.style.display = "none";
   }
 }
 

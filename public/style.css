@@ -971,7 +971,7 @@ hr {
 
 /*Empowering Startups with Comprehensive Services*/
 #user-engagement1 {
-  background-color: #ececec;
+  background-color: #f9f9f9;
   margin-top: 70px;
 }
 
@@ -1091,13 +1091,14 @@ hr {
   margin-top: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  
 }
 
 .stat-item {
   color: rgb(44, 43, 43);
   text-align: center;
   padding: 30px;
-  background-color: whitesmoke;
+  background-color: #f9f9f9;
   position: relative;
 }
 
@@ -1145,13 +1146,18 @@ hr {
 }
 /* Blog Section */
 
-#blog {
-  background: #f8fafc;
+#blog1 {
+  background-image: url("images/pic-3.jpg");
+  background-size: cover;     /* Makes the image cover the whole area */
+  background-position: center; /* Keeps it centered */
+  background-repeat: no-repeat; /* Avoids repeating */
   margin-top: 60px;
   margin-bottom: 50px;
+  padding: 80px 20px; /* Gives space inside for content */
 }
 .section-header11 {
   text-align: center;
+ 
 }
 .section-header11 h2 {
   font-size: 50px;
@@ -1204,7 +1210,7 @@ hr {
 .blog-card {
   transition: opacity 0.4s ease;
   opacity: 1;
-  background: white;
+  background-color: white;
   border-radius: 15px;
   overflow: hidden;
   display: block;
